@@ -1,0 +1,2058 @@
+{
+  "$schema_note": "slug -> where the canonical source lives here, where it deploys, and its last-verified hash. status: seeded (bytes present under skills/<slug> and hash verified) | pending_not_found (requested but no source bytes located in authorized scope).",
+  "generated": "2026-09-05",
+  "hash_method": "sha256 over sorted 'relpath:sha256(file)\\n' lines for every regular file in the skill dir, plus 'relpath -> target\\n' for every symlink",
+  "tree_hash_method": "sha256 over sorted 'sha256 relpath' lines; see bin/tree_hash.py. Recorded as tree_sha256 alongside the sha256 field bin/check.sh reads.",
+  "layout": "skills/<group>/<skill>/ for every tracked entry; no flat entries. An optional untracked overlay mirrors the same shape under .local-meta/skills/<skill>/ and merges over the tracked tree at install time. See OVERLAY.md.",
+  "generated_from_host": "workstation-c",
+  "counts": {
+    "tracked_skills": 49,
+    "by_group": {
+      "agent-workflow": 10,
+      "build-test-release": 8,
+      "coding": 18,
+      "operations": 2,
+      "product-ux": 3,
+      "research-data": 2,
+      "writing": 6
+    },
+    "by_origin": {
+      "pstack_upstream_mit": 44,
+      "owner_authored": 3,
+      "derived_from_licensed_upstream": 1,
+      "independent_rewrite": 1
+    },
+    "pstack_byte_identical_to_pinned_commit": 42,
+    "pstack_modified_here": 2,
+    "verbatim_from_host": 43,
+    "sanitized_here": 5,
+    "by_classification": {
+      "generic": 49
+    },
+    "overlay_only_skills": 0,
+    "overlay_only_files": 2,
+    "quarantined": 0,
+    "ungrouped": 0
+  },
+  "groups": [
+    "agent-workflow",
+    "build-test-release",
+    "coding",
+    "operations",
+    "product-ux",
+    "research-data",
+    "writing"
+  ],
+  "skills": [
+    {
+      "slug": "customer-obsession",
+      "source_path": "skills/product-ux/customer-obsession",
+      "installed_paths": [
+        "~/.claude/skills/customer-obsession"
+      ],
+      "sha256": "258efeca027382049ffc8bac17a47a6e5c8eaaeebb734df94bf49d18153c63e9",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "note": "Moved out of the flat pre-existing layout in the public-cleanup pass. The bytes here are the updated installed copy, copied from ~/.claude/skills/customer-obsession after a sha256 match; the superseded copy's preimage is kept ignored under .local-meta/originals/pre-public-cleanup/.",
+      "group": "product-ux",
+      "layout": "grouped",
+      "tree_sha256": "a2e5c6c6a8165a9be6fe74c5c423c2bdcbc3764b94f74228f2f3c97a6959904f",
+      "files": 1,
+      "bytes": 7499,
+      "description": "Turns a request into an excellent customer outcome. Identifies the real customer and their job, sets an observable success condition and a counter-metric before building, runs the actual customer path end to end, removes the top-ranked friction, and stops at minimum delightful. Use for product or UX work, customer complaints, bug fixes with user-visible impact, workflow and tool design, quality passes, and any request to make an experience good rather than merely done. Skip for fact lookups, mechanical edits with no user-facing outcome, and workflows a narrower skill already owns.",
+      "tags": [
+        "product-ux"
+      ],
+      "classification": "generic",
+      "superseded_sha256": "6a05c86a691a6c89f0313e2c5ece24581b2a6a75c069e31254e983852b84f9b7",
+      "provenance": {
+        "origin": "the installed copy on this workstation, verified by sha256 before the copy",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "a2e5c6c6a8165a9be6fe74c5c423c2bdcbc3764b94f74228f2f3c97a6959904f",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "bro",
+      "source_path": "skills/writing/bro",
+      "installed_paths": [
+        "~/.claude/skills/bro"
+      ],
+      "sha256": "8a602f40e0fbdd777daacda40897d92f8c14b2a90a55f345ac79f1bd9efcf5ba",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "e4a4874c6c26f53530ff2086eaa4860a04742d1c5742963396ad615d735616f7",
+      "files": 1,
+      "bytes": 267,
+      "description": "Restate the last message in plain human language, with no jargon.",
+      "tags": [
+        "writing"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/bro",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "e4a4874c6c26f53530ff2086eaa4860a04742d1c5742963396ad615d735616f7",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/bro",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "gabe-writing",
+      "source_path": "skills/writing/gabe-writing",
+      "installed_paths": [
+        "~/.claude/skills/gabe-writing"
+      ],
+      "sha256": "75a98e8afbfc93a11ef2271aa9c2df9998ad9d5111d408f7f4d4bbdb673f5c0a",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "c311fcfd3c90ffb9883a88fe9d0e1473077907f13dce9dc9f3635c4eb65d98d1",
+      "files": 5,
+      "bytes": 15672,
+      "description": "House writing standard for anything a person reads, including short chat replies and status lines. Use before drafting prose, a report, a status update, a change summary, a doc, or a post. Cuts AI tells, puts the conclusion first, and bans the constructions that make writing sound generated.",
+      "tags": [
+        "writing",
+        "multi-file",
+        "new-in-this-stage"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": true,
+      "provenance": {
+        "origin": "derived from the author's durable writing notes",
+        "upstream": "original, plus the public tropes.fyi taxonomy",
+        "verbatim_copy": false,
+        "source_tree_sha256": null,
+        "sanitized": true
+      }
+    },
+    {
+      "slug": "teach",
+      "source_path": "skills/writing/teach",
+      "installed_paths": [
+        "~/.claude/skills/teach"
+      ],
+      "sha256": "76d04a26029f2db35d228ad44464de22b3251dc7cbce01041b60d81fcaec1bac",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "2840771b9007a22cbb10a350bb7001050bdbd3134ac552eac7bda3da020f3f46",
+      "files": 1,
+      "bytes": 6253,
+      "description": "Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsystem to me'.",
+      "tags": [
+        "writing"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/teach",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "2840771b9007a22cbb10a350bb7001050bdbd3134ac552eac7bda3da020f3f46",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/teach",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "technical-writing",
+      "source_path": "skills/writing/technical-writing",
+      "installed_paths": [
+        "~/.claude/skills/technical-writing"
+      ],
+      "sha256": "702e71aa3f4af7e946ec3c6b3abd96d7a0c2fe3f7702e0ccd5734fec5841f3b2",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "265eff18c696857257895e984a91706a146e2e1fcc3ed57d592978e51d4d8641",
+      "files": 1,
+      "bytes": 11522,
+      "description": "Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.",
+      "tags": [
+        "writing"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/technical-writing",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "265eff18c696857257895e984a91706a146e2e1fcc3ed57d592978e51d4d8641",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/technical-writing",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "unslop",
+      "source_path": "skills/writing/unslop",
+      "installed_paths": [
+        "~/.claude/skills/unslop"
+      ],
+      "sha256": "dd8db37336cec54b34abad07a923539818bfd794f3ed741706161d52fcb59457",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "ad04b95988c3e294e5d934420452e16679a2606a59311dbf82955b6128f88520",
+      "files": 1,
+      "bytes": 6595,
+      "description": "Cut AI tells from any writing. Must always apply.",
+      "tags": [
+        "writing"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/unslop",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "ad04b95988c3e294e5d934420452e16679a2606a59311dbf82955b6128f88520",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/unslop",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-exhaust-the-design-space",
+      "source_path": "skills/product-ux/principle-exhaust-the-design-space",
+      "installed_paths": [
+        "~/.claude/skills/principle-exhaust-the-design-space"
+      ],
+      "sha256": "da245e778a49a783ba4058f016553ce1200f90a18ea3b8ef9ccdaf238a90ba62",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "product-ux",
+      "layout": "grouped",
+      "tree_sha256": "0a85f973dac421f69a9985c447abad95a28faa9677b3fa6c90d54dfd3019438b",
+      "files": 1,
+      "bytes": 1152,
+      "description": "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing.",
+      "tags": [
+        "product-ux",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-exhaust-the-design-space",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "0a85f973dac421f69a9985c447abad95a28faa9677b3fa6c90d54dfd3019438b",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-exhaust-the-design-space",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-experience-first",
+      "source_path": "skills/product-ux/principle-experience-first",
+      "installed_paths": [
+        "~/.claude/skills/principle-experience-first"
+      ],
+      "sha256": "078456b2497eb58087e0cd535eae5cf7ba046a91eee68db296f8496b03a91467",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "product-ux",
+      "layout": "grouped",
+      "tree_sha256": "2153269b12576411f38b0aeac1dfa862213f6cdeb8c0941f99828a6301c58531",
+      "files": 1,
+      "bytes": 1308,
+      "description": "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones.",
+      "tags": [
+        "product-ux",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-experience-first",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "2153269b12576411f38b0aeac1dfa862213f6cdeb8c0941f99828a6301c58531",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-experience-first",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "architect",
+      "source_path": "skills/coding/architect",
+      "installed_paths": [
+        "~/.claude/skills/architect"
+      ],
+      "sha256": "a3415f060e9aa129f308c8eadfe4cec6031f9c6ede580f13ec96a31da8379378",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "fb1a84b3f09af2022f817a3509aea9b87806aca213937a86301b980b5f065fc3",
+      "files": 4,
+      "bytes": 14146,
+      "description": "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape.",
+      "tags": [
+        "coding",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/architect",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "fb1a84b3f09af2022f817a3509aea9b87806aca213937a86301b980b5f065fc3",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/architect",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "no-comments",
+      "source_path": "skills/coding/no-comments",
+      "installed_paths": [
+        "~/.claude/skills/no-comments"
+      ],
+      "sha256": "71223673a5d36a94cf93005fb420633640463fbec17790929fd98bc3113b279c",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "cac6a19f326e60d98557c74fed7e16c12278d9676a9861405aa2d4465abeb53e",
+      "files": 1,
+      "bytes": 2655,
+      "description": "Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints.",
+      "tags": [
+        "coding"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/no-comments",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "cac6a19f326e60d98557c74fed7e16c12278d9676a9861405aa2d4465abeb53e",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/no-comments",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "ponytail-lazy-coding",
+      "source_path": "skills/coding/ponytail-lazy-coding",
+      "installed_paths": [
+        "~/.claude/skills/ponytail-lazy-coding"
+      ],
+      "sha256": "4e73fb1483b0778d011c9452167e118d40c9d47d468f70d078fcc29b33bcd46c",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "96fc660c1da4c4d53dc9d92596d869309c5c447669a581a22740f94882b095f8",
+      "files": 1,
+      "bytes": 3515,
+      "description": "Laziness-as-efficiency coding judgment. Use when picking how to implement something, reviewing a diff for unnecessary code, or deciding whether code needs to exist at all. Walks a ladder from \"skip it\" to \"write the minimum\", and fixes bugs at the root instead of per caller.",
+      "tags": [
+        "coding",
+        "new-in-this-stage"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": true,
+      "provenance": {
+        "origin": "derived from the author's condensed notes on the upstream ruleset",
+        "upstream": "github.com/DietrichGebert/ponytail (MIT)",
+        "verbatim_copy": false,
+        "source_tree_sha256": null,
+        "sanitized": true
+      }
+    },
+    {
+      "slug": "principle-boundary-discipline",
+      "source_path": "skills/coding/principle-boundary-discipline",
+      "installed_paths": [
+        "~/.claude/skills/principle-boundary-discipline"
+      ],
+      "sha256": "7c0afad6bd76cf601eecc0b2cbc00e189a677c30d140e87ebae89e535893379b",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "17634f49174c8c0fbc2c2362ed19939b04b7a58bee69ecfa5938f654fda7636e",
+      "files": 1,
+      "bytes": 1919,
+      "description": "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-boundary-discipline",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "17634f49174c8c0fbc2c2362ed19939b04b7a58bee69ecfa5938f654fda7636e",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-boundary-discipline",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-fix-root-causes",
+      "source_path": "skills/coding/principle-fix-root-causes",
+      "installed_paths": [
+        "~/.claude/skills/principle-fix-root-causes"
+      ],
+      "sha256": "0a75d57805ccad0c5da7b73326e3c467784ddd787d87757d281c49d3c7b7fb17",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "63e7923deb7b5106b2787b836b47c59b765bcbca7a64948ae09cab1eb58152d3",
+      "files": 1,
+      "bytes": 1366,
+      "description": "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-fix-root-causes",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "63e7923deb7b5106b2787b836b47c59b765bcbca7a64948ae09cab1eb58152d3",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-fix-root-causes",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-foundational-thinking",
+      "source_path": "skills/coding/principle-foundational-thinking",
+      "installed_paths": [
+        "~/.claude/skills/principle-foundational-thinking"
+      ],
+      "sha256": "0e518bfe757c2bde0c3ee82748af0e3ce5e5c1428c70feba0d7911295eb22cdf",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "bb9f571a079f842b892c29bacddc72c70cb032549a9d034b05a8c1f0e41f711f",
+      "files": 1,
+      "bytes": 1780,
+      "description": "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-foundational-thinking",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "bb9f571a079f842b892c29bacddc72c70cb032549a9d034b05a8c1f0e41f711f",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-foundational-thinking",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-laziness-protocol",
+      "source_path": "skills/coding/principle-laziness-protocol",
+      "installed_paths": [
+        "~/.claude/skills/principle-laziness-protocol"
+      ],
+      "sha256": "ae7be4beb57bc5a68f5c88966859d7dc298fb6f4db394d9c2954a8986a9a7dab",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "d5de59c0dccc165dbba215e14e87bf9f0ae0cfdafc8d5b09132e006ca1c956c9",
+      "files": 1,
+      "bytes": 1520,
+      "description": "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-laziness-protocol",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "d5de59c0dccc165dbba215e14e87bf9f0ae0cfdafc8d5b09132e006ca1c956c9",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-laziness-protocol",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-make-operations-idempotent",
+      "source_path": "skills/coding/principle-make-operations-idempotent",
+      "installed_paths": [
+        "~/.claude/skills/principle-make-operations-idempotent"
+      ],
+      "sha256": "2a4d35b445ec7c8264ff808b41004fd3a026084722f027b149bd66ef115a8bf6",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "2b2c07adf886b9a4540941179b7ede88f02ef9989ec6a316ebbe21fa6176cc3e",
+      "files": 1,
+      "bytes": 1390,
+      "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-make-operations-idempotent",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "2b2c07adf886b9a4540941179b7ede88f02ef9989ec6a316ebbe21fa6176cc3e",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-make-operations-idempotent",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-migrate-callers-then-delete-legacy-apis",
+      "source_path": "skills/coding/principle-migrate-callers-then-delete-legacy-apis",
+      "installed_paths": [
+        "~/.claude/skills/principle-migrate-callers-then-delete-legacy-apis"
+      ],
+      "sha256": "abe85a26ad6f72666fe34eb3701e7004963a127c8ba7e485bf76162ac2849d50",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "a17e6098cef292e5797a253790b30a51a8785a685c22f53cdf4c9a039bbf16ad",
+      "files": 1,
+      "bytes": 1152,
+      "description": "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-migrate-callers-then-delete-legacy-apis",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "a17e6098cef292e5797a253790b30a51a8785a685c22f53cdf4c9a039bbf16ad",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-migrate-callers-then-delete-legacy-apis",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-minimize-reader-load",
+      "source_path": "skills/coding/principle-minimize-reader-load",
+      "installed_paths": [
+        "~/.claude/skills/principle-minimize-reader-load"
+      ],
+      "sha256": "64af9989dd24010691284310fbe4446372d6a2dc9985ff25f1a75c7a6b9ab59a",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "287bd8118f75dc9743d0368f6a5b39b159c77c375598a648a4f8473cd5c372c4",
+      "files": 1,
+      "bytes": 2099,
+      "description": "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-minimize-reader-load",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "287bd8118f75dc9743d0368f6a5b39b159c77c375598a648a4f8473cd5c372c4",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-minimize-reader-load",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-model-the-domain",
+      "source_path": "skills/coding/principle-model-the-domain",
+      "installed_paths": [
+        "~/.claude/skills/principle-model-the-domain"
+      ],
+      "sha256": "ef4e88079bd3a8cd92dcb9cfa7809ea84c32e89ff8513cbac32949820727cd17",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "7f6eb95421016d568191d87948ccf6e42ca62ed34f82600f12b79d0bc77d628d",
+      "files": 1,
+      "bytes": 2127,
+      "description": "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files. Encode the domain in a structure instead of scattered conditionals.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-model-the-domain",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "7f6eb95421016d568191d87948ccf6e42ca62ed34f82600f12b79d0bc77d628d",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-model-the-domain",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-outcome-oriented-execution",
+      "source_path": "skills/coding/principle-outcome-oriented-execution",
+      "installed_paths": [
+        "~/.claude/skills/principle-outcome-oriented-execution"
+      ],
+      "sha256": "ec2a07993ac83d594c9b6057cadeee1fa5cd823d4422a810f730f8e2e6de3251",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "51934aef31d2c0aef877c99a603e778e685639e7985c68faf87c63abca9f0926",
+      "files": 1,
+      "bytes": 1132,
+      "description": "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-outcome-oriented-execution",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "51934aef31d2c0aef877c99a603e778e685639e7985c68faf87c63abca9f0926",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-outcome-oriented-execution",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-redesign-from-first-principles",
+      "source_path": "skills/coding/principle-redesign-from-first-principles",
+      "installed_paths": [
+        "~/.claude/skills/principle-redesign-from-first-principles"
+      ],
+      "sha256": "18293ad360de4b918e585346e45221910f094f8e11b6dd972ad126fec98e2a1b",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "28f8b0b31f490400816afac47b6264b77a7b03c96620d9839f009e840b991c1f",
+      "files": 1,
+      "bytes": 943,
+      "description": "Apply when integrating a new requirement into an existing design. Redesign as if the requirement had been a foundational assumption from day one, instead of bolting it on.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-redesign-from-first-principles",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "28f8b0b31f490400816afac47b6264b77a7b03c96620d9839f009e840b991c1f",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-redesign-from-first-principles",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-separate-before-serializing-shared-state",
+      "source_path": "skills/coding/principle-separate-before-serializing-shared-state",
+      "installed_paths": [
+        "~/.claude/skills/principle-separate-before-serializing-shared-state"
+      ],
+      "sha256": "b59df0782e015495e1acfd78cbbf390db2056afcf7251b663ffebcb46feeced3",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "18c0a29f9c34bc9ba4c6448037df868ba00459c1927baaae31cc9609de1e4b3a",
+      "files": 1,
+      "bytes": 1631,
+      "description": "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-separate-before-serializing-shared-state",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "18c0a29f9c34bc9ba4c6448037df868ba00459c1927baaae31cc9609de1e4b3a",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-separate-before-serializing-shared-state",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-subtract-before-you-add",
+      "source_path": "skills/coding/principle-subtract-before-you-add",
+      "installed_paths": [
+        "~/.claude/skills/principle-subtract-before-you-add"
+      ],
+      "sha256": "76a7025978db3fa35fd3b7e7e981e49e60fb89248a47811323f705e50915d51a",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "e5ffe2f3df076b717c0c6537e6ff49fedb201ca9e9a9c0bb62abc804eec75cd2",
+      "files": 1,
+      "bytes": 1337,
+      "description": "Apply when sequencing an addition, refactor, or rewrite. Remove dead weight, redundant validators, and stub references first, then build on the simpler base.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-subtract-before-you-add",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "e5ffe2f3df076b717c0c6537e6ff49fedb201ca9e9a9c0bb62abc804eec75cd2",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-subtract-before-you-add",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-type-system-discipline",
+      "source_path": "skills/coding/principle-type-system-discipline",
+      "installed_paths": [
+        "~/.claude/skills/principle-type-system-discipline"
+      ],
+      "sha256": "d1aa503475a3634aa37b9cc35c96f0b8d49f59851bd9a00b6a9f3a4102278c07",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "6ab29198f49f21d44a6fa2293b61cbeaf8cd5eabed2aa7be1c87e7ce64973266",
+      "files": 1,
+      "bytes": 5097,
+      "description": "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, exhaust variants, derive from authoritative schemas.",
+      "tags": [
+        "coding",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-type-system-discipline",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "6ab29198f49f21d44a6fa2293b61cbeaf8cd5eabed2aa7be1c87e7ce64973266",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-type-system-discipline",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "typescript-best-practices",
+      "source_path": "skills/coding/typescript-best-practices",
+      "installed_paths": [
+        "~/.claude/skills/typescript-best-practices"
+      ],
+      "sha256": "6c43115761a66a72c3f8e6b3d09c91efced47176f45c69f5fc162e8c30446139",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "tree_sha256": "ab12421b3c5618e1cf26adadf4c0e934bfb834af2a65333413732dc824acca1f",
+      "files": 2,
+      "bytes": 11227,
+      "description": "TypeScript best practices. Use when reading or editing any .ts or .tsx file.",
+      "tags": [
+        "coding",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/typescript-best-practices",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "ab12421b3c5618e1cf26adadf4c0e934bfb834af2a65333413732dc824acca1f",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/typescript-best-practices",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "blast-radius",
+      "source_path": "skills/build-test-release/blast-radius",
+      "installed_paths": [
+        "~/.claude/skills/blast-radius"
+      ],
+      "sha256": "265f2f12f353cf30db471e0073e693a3ec06252323e6e862fb05bf322e323695",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "6f0c8411506d026fa4d342cab38c937cb348f4132b35cd51ddcef3becd7999f1",
+      "files": 1,
+      "bytes": 4112,
+      "description": "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust.",
+      "tags": [
+        "build-test-release"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/blast-radius",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "6f0c8411506d026fa4d342cab38c937cb348f4132b35cd51ddcef3becd7999f1",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/blast-radius",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "create-verification-skill",
+      "source_path": "skills/build-test-release/create-verification-skill",
+      "installed_paths": [
+        "~/.claude/skills/create-verification-skill"
+      ],
+      "sha256": "36a3348b7a48f03df99d819dcea5846f1f3b1ba152beea447beb96af1e184c4e",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "a03b38d811533099a0a10062fc9c594b617cdc5b09a8d7cba56565dd6af76b41",
+      "files": 4,
+      "bytes": 14884,
+      "description": "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way to prove UI/CLI/service behavior.",
+      "tags": [
+        "build-test-release",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/create-verification-skill",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "a03b38d811533099a0a10062fc9c594b617cdc5b09a8d7cba56565dd6af76b41",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/create-verification-skill",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "interrogate",
+      "source_path": "skills/build-test-release/interrogate",
+      "installed_paths": [
+        "~/.claude/skills/interrogate"
+      ],
+      "sha256": "7eac14546d9a334441144742df5df3e3e310248c25bd9c06c4857be2df91beb0",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "3d48009cbe21471b573d090d1504f4cfd7fd9fd36359665e6b1a81e176f6b5c8",
+      "files": 5,
+      "bytes": 22318,
+      "description": "Use for \\\"interrogate\\\", \\\"adversarial review\\\", \\\"multi-model review\\\", \\\"challenge this\\\", \\\"stress test this code\\\", \\\"find blind spots\\\", or \\\"tear this apart\\\". Multiple LLM reviewers challenge changes from independent angles.",
+      "tags": [
+        "build-test-release",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/interrogate",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "3d48009cbe21471b573d090d1504f4cfd7fd9fd36359665e6b1a81e176f6b5c8",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/interrogate",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "maintain-verification-skill",
+      "source_path": "skills/build-test-release/maintain-verification-skill",
+      "installed_paths": [
+        "~/.claude/skills/maintain-verification-skill"
+      ],
+      "sha256": "8961f77b09057ef1b06f74891f38f879b8cef23f206976832d573891a489a423",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "563bc2166275c87092311648d23cd2607f2700938f6f2a5ae5443af650128cbc",
+      "files": 1,
+      "bytes": 4922,
+      "description": "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \\\"audit the verify skill\\\".",
+      "tags": [
+        "build-test-release"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/maintain-verification-skill",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "563bc2166275c87092311648d23cd2607f2700938f6f2a5ae5443af650128cbc",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/maintain-verification-skill",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-build-the-lever",
+      "source_path": "skills/build-test-release/principle-build-the-lever",
+      "installed_paths": [
+        "~/.claude/skills/principle-build-the-lever"
+      ],
+      "sha256": "aec190f30cd0733b392475c0cbf7596becbedb664a186a5212af80b95897f665",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "3ecc0d308dfc5dceaf7755de6bb98d99c43a9e17ea6bd223fbf0d0836e8067e0",
+      "files": 1,
+      "bytes": 2655,
+      "description": "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun.",
+      "tags": [
+        "build-test-release",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-build-the-lever",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "3ecc0d308dfc5dceaf7755de6bb98d99c43a9e17ea6bd223fbf0d0836e8067e0",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-build-the-lever",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-prove-it-works",
+      "source_path": "skills/build-test-release/principle-prove-it-works",
+      "installed_paths": [
+        "~/.claude/skills/principle-prove-it-works"
+      ],
+      "sha256": "fc4b434958880f07311b81bab75faaddccb92851a2d8e0468fdc79495b6d98eb",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "488e0bbae2657feeb76702d5adfd613d67d5a93f4963b4babbbf873a6d39982a",
+      "files": 1,
+      "bytes": 2068,
+      "description": "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'",
+      "tags": [
+        "build-test-release",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-prove-it-works",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "488e0bbae2657feeb76702d5adfd613d67d5a93f4963b4babbbf873a6d39982a",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-prove-it-works",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-sequence-verifiable-units",
+      "source_path": "skills/build-test-release/principle-sequence-verifiable-units",
+      "installed_paths": [
+        "~/.claude/skills/principle-sequence-verifiable-units"
+      ],
+      "sha256": "5baf0940c23982d2f6a96103281ac450fc81ca5c54d4479a944b542168d07c6c",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "6b584ce1f0735d65ef6c0cba31e0fd5cfeebba8b781a200539fe03e9a0c6e9a0",
+      "files": 1,
+      "bytes": 2290,
+      "description": "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer.",
+      "tags": [
+        "build-test-release",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-sequence-verifiable-units",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "6b584ce1f0735d65ef6c0cba31e0fd5cfeebba8b781a200539fe03e9a0c6e9a0",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-sequence-verifiable-units",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "tdd",
+      "source_path": "skills/build-test-release/tdd",
+      "installed_paths": [
+        "~/.claude/skills/tdd"
+      ],
+      "sha256": "bfd76caff9d8082766ee7961045cdeb3b0e734579467feb6fc8e9c5d1296cfd2",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "ab7381679f8672e88fd4ee24842a1e8302aeec984b07b2d1958ae4e45cf3d57d",
+      "files": 1,
+      "bytes": 3536,
+      "description": "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested.",
+      "tags": [
+        "build-test-release"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/tdd",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "ab7381679f8672e88fd4ee24842a1e8302aeec984b07b2d1958ae4e45cf3d57d",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/tdd",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "how",
+      "source_path": "skills/research-data/how",
+      "installed_paths": [
+        "~/.claude/skills/how"
+      ],
+      "sha256": "b0d8080a47b31f5b1b81db39160fd94e40ea136f8291d406ace18edb18d986c0",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "research-data",
+      "layout": "grouped",
+      "tree_sha256": "2ad3455f9573dd8dd2d5dfd436e96cceac01de102fb0cbbf901d7b25ed1f01ef",
+      "files": 5,
+      "bytes": 18262,
+      "description": "Use for \\\"how does X work\\\", code walkthroughs before changing something, and placement / ownership / layering questions (\\\"where should this live\\\", \\\"which package owns this\\\", \\\"is this the right layer\\\"). Explains subsystem architecture, runtime flow, onboarding mental models. Can critique architecture. Use why for motivation.",
+      "tags": [
+        "research-data",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/how",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "2ad3455f9573dd8dd2d5dfd436e96cceac01de102fb0cbbf901d7b25ed1f01ef",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/how",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "why",
+      "source_path": "skills/research-data/why",
+      "installed_paths": [
+        "~/.claude/skills/why"
+      ],
+      "sha256": "779505358052f8f9315246116c07e117fd82e84ad3532a6f5f1af089b1573dfb",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "research-data",
+      "layout": "grouped",
+      "tree_sha256": "1aeb0f67b285aa570c41801bbad7fdf21933a260d96bad5d8ab96123b5114bfc",
+      "files": 13,
+      "bytes": 77104,
+      "description": "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence category (source control, issue tracker, long-form docs, real-time chat, infrastructure observability, error tracking, product analytics warehouse) in parallel, then returns a cited read on decisions and tradeoffs. Use how for runtime behavior.",
+      "tags": [
+        "research-data",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/why",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "1aeb0f67b285aa570c41801bbad7fdf21933a260d96bad5d8ab96123b5114bfc",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/why",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "setup-pstack",
+      "source_path": "skills/operations/setup-pstack",
+      "installed_paths": [
+        "~/.claude/skills/setup-pstack"
+      ],
+      "sha256": "7dfd42b0d4f2984366d1d5ce0e7a3c9f36dad133ec2f921658509010a7ff277c",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "operations",
+      "layout": "grouped",
+      "tree_sha256": "37c4373447636bcff1d2a0d4df04f5971460eb2c09c175e21f9a08f553d6dd48",
+      "files": 1,
+      "bytes": 4648,
+      "description": "Configure which models pstack uses per role. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /setup-pstack, \"configure pstack models\", or changing pstack's model choices.",
+      "tags": [
+        "operations"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/setup-pstack",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "37c4373447636bcff1d2a0d4df04f5971460eb2c09c175e21f9a08f553d6dd48",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/setup-pstack",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "show-me-your-work",
+      "source_path": "skills/operations/show-me-your-work",
+      "installed_paths": [
+        "~/.claude/skills/show-me-your-work"
+      ],
+      "sha256": "ef54f7fe1157c697901f540e3539e2d163aa75d181325cffcb968e04426b9384",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "operations",
+      "layout": "grouped",
+      "tree_sha256": "1ef3f5377609b68f391d229f573ca4d0d0f8715e388262f38bd80800a0469dc4",
+      "files": 3,
+      "bytes": 8034,
+      "description": "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away.",
+      "tags": [
+        "operations",
+        "multi-file",
+        "ships-scripts"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/show-me-your-work",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "1ef3f5377609b68f391d229f573ca4d0d0f8715e388262f38bd80800a0469dc4",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/show-me-your-work",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "arena",
+      "source_path": "skills/agent-workflow/arena",
+      "installed_paths": [
+        "~/.claude/skills/arena"
+      ],
+      "sha256": "81f904d465c999c83dc9812caaf0e1dbb8fee6f5ba9e18553531cf5e5b696a46",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "4e03e7f495686e76b872f5f782d0cd7a989591d7e52f203a83f7bcba99656dbc",
+      "files": 1,
+      "bytes": 5367,
+      "description": "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape.",
+      "tags": [
+        "agent-workflow"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/arena",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "4e03e7f495686e76b872f5f782d0cd7a989591d7e52f203a83f7bcba99656dbc",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/arena",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "automate-me",
+      "source_path": "skills/agent-workflow/automate-me",
+      "installed_paths": [
+        "~/.claude/skills/automate-me"
+      ],
+      "sha256": "513bd73539c41cafff213885e79e4da2093aaae20b1344ac1e2089b854de1037",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "aebf66dce3888acd7e3cd74e9cde1ba3afe93b6b5aff5bb44721dc4c78d2b40a",
+      "files": 1,
+      "bytes": 7815,
+      "description": "Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts.",
+      "tags": [
+        "agent-workflow"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/automate-me",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": false,
+        "source_tree_sha256": "983425ad8581c00a902cd256098647f9f11040c45d8dca970f7e932365369e9e",
+        "sanitized": true,
+        "sanitization": "the preferences bullet now reads 'Meta-level preferences' instead of the bare ambiguous word",
+        "sanitization_reason": "public-cleanup pass: a bare capitalized word meaning meta-level was indistinguishable from an employer name in a public repo. The text was reworded to say what it meant, and the allowlist entry that had been suppressing it was deleted. Preimage under .local-meta/originals/pre-public-cleanup/.",
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/automate-me",
+        "matches_upstream_at_pinned_commit": false
+      }
+    },
+    {
+      "slug": "figure-it-out",
+      "source_path": "skills/agent-workflow/figure-it-out",
+      "installed_paths": [
+        "~/.claude/skills/figure-it-out"
+      ],
+      "sha256": "cf2461a5f498214e060e9a065abe6e0ed59b00acd54cd9ba81da112599d0767e",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "64d361beefd8d92609ccd800ecc27060a405d79e8475a3d44f0572fb06e7d9a6",
+      "files": 1,
+      "bytes": 5161,
+      "description": "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions via show-me-your-work. Use for /figure-it-out, 'figure it out', a large migration, or when no narrower playbook applies.",
+      "tags": [
+        "agent-workflow"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/figure-it-out",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "64d361beefd8d92609ccd800ecc27060a405d79e8475a3d44f0572fb06e7d9a6",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/figure-it-out",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "poteto-mode",
+      "source_path": "skills/agent-workflow/poteto-mode",
+      "installed_paths": [
+        "~/.claude/skills/poteto-mode"
+      ],
+      "sha256": "182bb0855862cc63a561390232af0738be4e9d087f9c7d9e8cf83461f0fbd6bf",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "6b3089e6cb30279325ed1792bc02dda3d533edc644a98cdcca1f959c416a2da6",
+      "files": 45,
+      "bytes": 314483,
+      "description": "poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /poteto-mode, or requests to work in this style.",
+      "tags": [
+        "agent-workflow",
+        "multi-file",
+        "ships-scripts"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/poteto-mode",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": false,
+        "source_tree_sha256": "9d804040090a60b0a33cc042ee45a729cb004fd52f67dc385d858623d9b28991",
+        "sanitized": true,
+        "sanitization": "the principle-group heading now reads 'Meta-level' instead of the bare ambiguous word, and eval.md now reads 'not the meta-framing'",
+        "sanitization_reason": "public-cleanup pass: a bare capitalized word meaning meta-level was indistinguishable from an employer name in a public repo. The text was reworded to say what it meant, and the allowlist entry that had been suppressing it was deleted. Preimage under .local-meta/originals/pre-public-cleanup/.",
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/poteto-mode",
+        "matches_upstream_at_pinned_commit": false
+      }
+    },
+    {
+      "slug": "principle-encode-lessons-in-structure",
+      "source_path": "skills/agent-workflow/principle-encode-lessons-in-structure",
+      "installed_paths": [
+        "~/.claude/skills/principle-encode-lessons-in-structure"
+      ],
+      "sha256": "9c2793a092b9a8d01040c316e86706ba85b47a576d0f41fe41ef38a80c0c5c90",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "366540ef8296c86bf34a7b84460803873b85ea4ec84f7dea73df531ae16e18a8",
+      "files": 1,
+      "bytes": 2243,
+      "description": "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text.",
+      "tags": [
+        "agent-workflow",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-encode-lessons-in-structure",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "366540ef8296c86bf34a7b84460803873b85ea4ec84f7dea73df531ae16e18a8",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-encode-lessons-in-structure",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-guard-the-context-window",
+      "source_path": "skills/agent-workflow/principle-guard-the-context-window",
+      "installed_paths": [
+        "~/.claude/skills/principle-guard-the-context-window"
+      ],
+      "sha256": "28ce3fb0e39730f0f15cdbfccda5f10e1ecd119681e668592cb8ac4cb25061a9",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "91c049dc983813253b76e84c57f6d1ceb92a6713db1851173106ac472c00478e",
+      "files": 1,
+      "bytes": 1152,
+      "description": "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads.",
+      "tags": [
+        "agent-workflow",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-guard-the-context-window",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "91c049dc983813253b76e84c57f6d1ceb92a6713db1851173106ac472c00478e",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-guard-the-context-window",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "principle-never-block-on-the-human",
+      "source_path": "skills/agent-workflow/principle-never-block-on-the-human",
+      "installed_paths": [
+        "~/.claude/skills/principle-never-block-on-the-human"
+      ],
+      "sha256": "9cc59d660f3438ff3c3803e42ceeb999410041970c222d4931d069b5a66ef344",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "c5c22e1eebe451400eaca08a48c45b1920268cb47a826e3617f866efe62f2df6",
+      "files": 1,
+      "bytes": 1596,
+      "description": "Apply when tempted to ask 'should I do X?' on reversible work. Proceed, present the result, let the human course-correct after the fact; reserve confirmation for irreversible actions.",
+      "tags": [
+        "agent-workflow",
+        "one-principle"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/principle-never-block-on-the-human",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "c5c22e1eebe451400eaca08a48c45b1920268cb47a826e3617f866efe62f2df6",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/principle-never-block-on-the-human",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "recall",
+      "source_path": "skills/agent-workflow/recall",
+      "installed_paths": [
+        "~/.claude/skills/recall"
+      ],
+      "sha256": "4ab0c010fc917e7a358a6fd9b7b44c735380f2ace213ec3647676b9d30785634",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "d6d0d726dabeb548c11f29b7bbe395189167a26923fa5a9c21680846727cc25c",
+      "files": 1,
+      "bytes": 5696,
+      "description": "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work.",
+      "tags": [
+        "agent-workflow"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/recall",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "d6d0d726dabeb548c11f29b7bbe395189167a26923fa5a9c21680846727cc25c",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/recall",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "reflect",
+      "source_path": "skills/agent-workflow/reflect",
+      "installed_paths": [
+        "~/.claude/skills/reflect"
+      ],
+      "sha256": "91dbe4f04e9a981fe42209d35e298e18d64be80823544b167dabd35fac41e9d2",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "d996e0d517412e0cefd0e8d67fcd4352501e9eec59f1d1614825d6adbc41653f",
+      "files": 5,
+      "bytes": 21282,
+      "description": "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.",
+      "tags": [
+        "agent-workflow",
+        "multi-file"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/reflect",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "d996e0d517412e0cefd0e8d67fcd4352501e9eec59f1d1614825d6adbc41653f",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/reflect",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "swarm",
+      "source_path": "skills/agent-workflow/swarm",
+      "installed_paths": [
+        "~/.claude/skills/swarm"
+      ],
+      "sha256": "9c55a7c35a96b8c90d93f1831eaee6a9b08a48234cf050b541aa03bc48c75971",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "agent-workflow",
+      "layout": "grouped",
+      "tree_sha256": "671f494eef90fe0309d895cf2c51b683e565b2b1e70d826dbcfa272c4e769fe4",
+      "files": 1,
+      "bytes": 2232,
+      "description": "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration.",
+      "tags": [
+        "agent-workflow"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": false,
+      "provenance": {
+        "origin": "workstation-a:~/.claude/skills/swarm",
+        "upstream": "pstack, the public cursor/plugins repo",
+        "verbatim_copy": true,
+        "source_tree_sha256": "671f494eef90fe0309d895cf2c51b683e565b2b1e70d826dbcfa272c4e769fe4",
+        "sanitized": false,
+        "upstream_repo": "https://github.com/cursor/plugins",
+        "upstream_path_template": "pstack/skills/<slug>",
+        "upstream_commit": "46125561306434d8a1d7745d540d8932ab0cd2a2",
+        "upstream_commit_date": "2026-08-21T03:10:04Z",
+        "upstream_plugin_version": "0.14.2",
+        "license": "MIT",
+        "license_holder": "Lauren Tan",
+        "license_file": "licenses/pstack-MIT.txt",
+        "license_proven_from": "pstack/LICENSE read directly from a clean clone of cursor/plugins at the pinned commit, and re-read from the GitHub contents API at that same commit (blob 6b5400237fdf6545be0b8fae370d6f2fcff8fb25, 1067 bytes); corroborated by \"license\": \"MIT\" in pstack/.cursor-plugin/plugin.json at the same commit",
+        "upstream_path": "pstack/skills/swarm",
+        "matches_upstream_at_pinned_commit": true
+      }
+    },
+    {
+      "slug": "in-my-voice",
+      "source_path": "skills/writing/in-my-voice",
+      "installed_paths": [
+        "~/.claude/skills/in-my-voice"
+      ],
+      "sha256": "bb53d66fc73a8121f7d752bc22c6ef40e2325322f50d8262ef0a1fcd361b5a9c",
+      "last_verified": "2026-09-05T23:30:00Z",
+      "status": "seeded",
+      "group": "writing",
+      "layout": "grouped",
+      "tree_sha256": "6d40d4b9d400f13e397816f482f779035fc6cba7e9d53fa7ce7ba13418668515",
+      "files": 3,
+      "bytes": 10393,
+      "description": "Write an announcement post or a change summary that sounds like the author instead of like a model. Compiles a reusable voice profile from their own past writing, then drafts to it. Use for /in-my-voice, \"write a post\", \"draft an announcement\", \"write in my voice\", or \"suggest a summary for this change\".",
+      "tags": [
+        "writing",
+        "new-in-this-stage"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": true,
+      "provenance": {
+        "origin": "imported from the agent platform's skill loader, then generalized",
+        "upstream": "platform-provided skill, no licence text shipped with it",
+        "verbatim_copy": false,
+        "source_tree_sha256": null,
+        "sanitized": true
+      }
+    },
+    {
+      "slug": "value-oriented-programming",
+      "source_path": "skills/coding/value-oriented-programming",
+      "installed_paths": [
+        "~/.claude/skills/value-oriented-programming"
+      ],
+      "status": "seeded",
+      "group": "coding",
+      "layout": "grouped",
+      "description": "Tony Van Eerd's value-oriented programming, as working heuristics. Use when writing or reviewing C++ that involves designing a class, deciding member vs free function, choosing what a function takes and returns, splitting a long function, or untangling code that shares mutable state.",
+      "tags": [
+        "coding",
+        "cpp"
+      ],
+      "classification": "generic",
+      "new_in_this_stage": true,
+      "note": "Imported from workstation-c in the reconciliation pass. Only SKILL.md is tracked: it is the owner's own distillation. The two excerpts-*.md files that sit beside it in the installed copy are verbatim auto-caption transcript of two third-party conference talks, so they are held in the untracked overlay at .local-meta/skills/value-oriented-programming/ instead. SKILL.md does not reference them and stands alone without them.",
+      "provenance": {
+        "origin": "workstation-c:~/.claude/skills/value-oriented-programming",
+        "upstream": "none; authored by the repo owner",
+        "verbatim_copy": false,
+        "sanitized": false,
+        "derived_from": "two public C++Now conference talks by Tony Van Eerd: 'You Say You Want to Write a Function' (Part 1, 2023) and 'Return of the Values' (Part V, 2024)",
+        "third_party_content_held_in_overlay": [
+          "excerpts-part1.md",
+          "excerpts-part5.md"
+        ],
+        "source_tree_sha256": "e1dae94b5e5c4023d09ae1157bc20c810d66a2f4d267563d20a03847bede9bec"
+      },
+      "sha256": "2e3ee5849dd1c9822acff8616d0daed74e7be32004b54420a34eea389179a47a",
+      "tree_sha256": "e1dae94b5e5c4023d09ae1157bc20c810d66a2f4d267563d20a03847bede9bec",
+      "files": 1,
+      "bytes": 10475,
+      "last_verified": "2026-09-05T23:30:00Z"
+    }
+  ],
+  "conflicts": [],
+  "variants": [
+    {
+      "skill": "automate-me",
+      "kind": "tracked copy deliberately differs from the installed copy",
+      "installed_tree_sha256": "983425ad8581",
+      "tracked_tree_sha256": "aebf66dce388",
+      "difference": "one bullet in the preferences list. Upstream uses the bare ambiguous word on its own; the tracked text disambiguates it to 'Meta-level preferences'.",
+      "disposition": "keep both. The tracked wording is the public-cleanup disambiguation and must not be overwritten by a reinstall of upstream; the installed copy is upstream's own and is left alone."
+    },
+    {
+      "skill": "poteto-mode",
+      "kind": "tracked copy deliberately differs from the installed copy",
+      "installed_tree_sha256": "9d804040090a",
+      "tracked_tree_sha256": "6b3089e6cb30",
+      "difference": "two files. SKILL.md's principle-group heading is disambiguated to 'Meta-level', and playbooks/eval.md now reads 'not the meta-framing'; upstream uses the bare ambiguous word in both places.",
+      "disposition": "same as automate-me: deliberate, keep both."
+    },
+    {
+      "skill": "customer-obsession",
+      "kind": "installed copy carries an extra file",
+      "difference": "SKILL.md is byte-identical in both places (ff3841d75401...). The installed directory additionally holds SKILL.md.bak.20260905_112041, a backup this repo's own installer wrote when it updated the skill.",
+      "disposition": "not drift. Nothing to reconcile in the tracked tree. The stray backup lives under the installed skills directory, which this pass treats as read-only, so it was left in place."
+    }
+  ],
+  "pending_hosts": [
+    {
+      "host": "workstation-b",
+      "status": "pending",
+      "inventoried": false,
+      "installed_skills": null,
+      "note": "Offline for every attempt in this pass and the one before it. Not reachable, so no inventory is claimed. This is the only host-side gap left in the repo."
+    }
+  ],
+  "resolved": [
+    {
+      "skill": "customer-obsession",
+      "resolved": "2026-09-05",
+      "how": "The updated installed copy superseded the flat repo copy. Its sha256 was verified against ~/.claude/skills/customer-obsession/SKILL.md before and after an atomic write to skills/product-ux/customer-obsession, and only then was the flat copy removed. Its preimage is kept ignored under .local-meta/.",
+      "superseded_sha256": "6a05c86a691a6c89f0313e2c5ece24581b2a6a75c069e31254e983852b84f9b7",
+      "landed_sha256": "258efeca027382049ffc8bac17a47a6e5c8eaaeebb734df94bf49d18153c63e9",
+      "landed_tree_sha256": "a2e5c6c6a8165a9be6fe74c5c423c2bdcbc3764b94f74228f2f3c97a6959904f"
+    },
+    {
+      "item": "pstack licence and upstream pin",
+      "resolved": "2026-09-05T23:30:00Z",
+      "how": "Located the upstream from a shell-history clone line (cursor/plugins, cloned into a working directory, then cd plugins/pstack) and found that clone still present and clean at commit 4612556. Read pstack/LICENSE from it, confirmed cursor/plugins is a public repository, and re-read the same LICENSE blob from the GitHub contents API pinned to that commit. MIT, Copyright (c) 2026 Lauren Tan. Copied verbatim to licenses/pstack-MIT.txt (byte-identical, sha256 bc957ca6...). 42 of the 44 tracked pstack skills are byte-identical to that commit; the other 2 are this repo's own recorded wording changes, which MIT permits.",
+      "clears": "PUSH_BLOCKED blocker 1"
+    },
+    {
+      "item": "in-my-voice redistribution terms",
+      "resolved": "2026-09-05T23:30:00Z",
+      "how": "The loader source is an employer-internal skill that lives in the employer's monorepo, so its text is proprietary and can never be published. The tracked skill was measured against the retained loader source: zero shared sentences, and the residual common runs were reduced to functional interface strings only (the slash-command name, its argument line, the literal routing keywords a user types, and a config-file path). Two example lines and one sentence that still echoed the source were reworded in this pass. The tracked skill is the owner's own text.",
+      "clears": "PUSH_BLOCKED blocker 2"
+    },
+    {
+      "item": "value-oriented-programming",
+      "resolved": "2026-09-05T23:30:00Z",
+      "how": "Flagged for a human call by the previous pass. Confirmed absent from the pstack upstream and from every other bundled pack, and confirmed to be the owner's own distillation of two public talks. SKILL.md is tracked. Its two verbatim caption-transcript files are not, and moved to the overlay."
+    }
+  ],
+  "last_reconciled": "2026-09-05T23:30:00Z",
+  "hosts": [
+    {
+      "host": "workstation-a",
+      "status": "inventoried",
+      "inventoried": true,
+      "installed_skills": 45,
+      "reconciled": "2026-09-05",
+      "note": "Source of the original merge payload. All 45 classified portable; no employer-only skill found."
+    },
+    {
+      "host": "workstation-b",
+      "status": "pending",
+      "inventoried": false,
+      "installed_skills": null,
+      "note": "Offline for every attempt in this pass and the one before it. Not reachable, so no inventory is claimed. This is the only host-side gap left in the repo."
+    },
+    {
+      "host": "workstation-c",
+      "status": "inventoried",
+      "inventoried": true,
+      "installed_skills": 46,
+      "reconciled": "2026-09-05T23:30:00Z",
+      "note": "Holds this repo. Reconciled by full tree-hash comparison of all 46 installed skills against the tracked tree: 42 identical, 3 explained variants, 1 imported (value-oriented-programming)."
+    }
+  ],
+  "overlay": {
+    "path": ".local-meta/skills/",
+    "tracked": false,
+    "why": "Holds material that is real and worth backing up locally but cannot be redistributed from the tracked tree: verbatim third-party content whose terms are unproven or unlicensed.",
+    "install": "bin/install.sh --with-overlay",
+    "manifest": "OVERLAY.md",
+    "contents": [
+      {
+        "skill": "value-oriented-programming",
+        "files": [
+          "excerpts-part1.md",
+          "excerpts-part5.md"
+        ],
+        "what": "verbatim excerpts of the auto-generated captions of two public C++Now talks by Tony Van Eerd",
+        "why_not_tracked": "substantial verbatim transcript of a third party's recorded talk; no licence grants redistribution",
+        "refetch": "re-derive from the talk recordings named in skills/coding/value-oriented-programming/SKILL.md and in OVERLAY.md"
+      }
+    ]
+  }
+}

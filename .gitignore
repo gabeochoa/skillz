@@ -1,0 +1,45 @@
+# Backups made by bin/install.sh before it overwrites an installed skill
+backups/
+
+# Scratch/test homes used to exercise bin/install.sh
+.test-home/
+/tmp-*
+
+# Generated, re-creatable reports (not the authored INVENTORY.md)
+reports/
+*.generated.json
+
+# OS / editor cruft
+.DS_Store
+*.swp
+
+# Never commit secrets
+*.pem
+*.key
+.env
+
+# Private originals and machine-specific material. Never published.
+.local-meta/
+
+# Local rule files that name internal systems.
+bin/rules/local_*.txt
+bin/rules/*_denylist.txt
+!bin/rules/denylist.example.txt
+
+# Rollback snapshots and quarantined incoming copies from a payload merge.
+.merge-backups/
+.incoming/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Editor
+.idea/
+.vscode/
+Thumbs.db

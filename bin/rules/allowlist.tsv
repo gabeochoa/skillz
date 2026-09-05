@@ -1,0 +1,28 @@
+# Reviewed exceptions to public_check rules.
+#
+# Format, tab separated:
+#   path-glob <TAB> rule-id <TAB> exact-matched-text <TAB> reason
+#
+# Use "*" as the matched text to suppress a rule for a whole path glob. Prefer
+# an exact match: a broad suppression hides the next real finding.
+#
+# Every line needs a reason. An entry with no reason is a mute, not a review.
+#
+# EMPTY, ON PURPOSE.
+#
+# This file previously carried five entries suppressing an employer-name rule
+# where a bare capitalized word meant "meta-level" rather than a company. Every
+# one of those was resolved by editing the source text to say what it meant
+# ("Meta-level preferences", "meta-framing"), which is a real fix. The
+# suppressions were then deleted.
+#
+# Two reasons not to bring them back:
+#
+#  1. Generalizing the text removes the token from the published repo. An
+#     allowlist entry leaves it there and asserts it is fine.
+#  2. The entry has to quote the string it suppresses, so an allowlist for a
+#     private value publishes that value in this file, which is tracked.
+#
+# So: never allowlist a private value. Rewrite the text instead. Add an entry
+# here only for a genuine shape false positive that cannot be reworded, and give
+# it a reason a stranger can check.

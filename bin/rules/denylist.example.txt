@@ -1,0 +1,21 @@
+# Extra denylist rules, example format.
+#
+# Copy this file somewhere OUTSIDE version control (the repo keeps private
+# originals in .local-meta/, which is gitignored) and pass it in:
+#
+#     python3 bin/public_check.py --rules .local-meta/rules/internal_denylist.txt
+#
+# Employer-specific patterns do not belong in a public repo, which is why this
+# tracked file contains only placeholders. Replace the right-hand side with the
+# real strings in your private copy.
+#
+# Format, tab separated:
+#   severity <TAB> rule-id <TAB> regex <TAB> message
+# severity is ERROR or WARN.
+
+ERROR	employer-name	\bAcmeCorp\b	employer name in tracked content
+ERROR	internal-domain	\bwiki\.acme-internal\.example\b	internal domain
+ERROR	internal-repo	\b(?:acme_monorepo|acme_www)\b	internal repository name
+ERROR	internal-tooling	\b(?:acmebuild|acmedeploy)\b	internal tool name
+ERROR	issue-prefix	\bACME-\d+\b	internal issue id
+WARN	codename	\b(?:project[_-]?bluebird)\b	unreleased product codename
