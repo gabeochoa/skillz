@@ -6,19 +6,20 @@
   "layout": "skills/<group>/<skill>/ for every tracked entry; no flat entries. An optional untracked overlay mirrors the same shape under .local-meta/skills/<skill>/ and merges over the tracked tree at install time. See OVERLAY.md.",
   "generated_from_host": "workstation-c",
   "counts": {
-    "tracked_skills": 49,
+    "tracked_skills": 61,
     "by_group": {
       "agent-workflow": 10,
-      "build-test-release": 8,
+      "build-test-release": 9,
       "coding": 18,
-      "operations": 2,
-      "product-ux": 3,
+      "operations": 5,
+      "product-ux": 4,
       "research-data": 2,
-      "writing": 6
+      "writing": 6,
+      "media": 7
     },
     "by_origin": {
       "pstack_upstream_mit": 44,
-      "owner_authored": 3,
+      "owner_authored": 15,
       "derived_from_licensed_upstream": 1,
       "independent_rewrite": 1
     },
@@ -27,7 +28,7 @@
     "verbatim_from_host": 43,
     "sanitized_here": 5,
     "by_classification": {
-      "generic": 49
+      "generic": 61
     },
     "overlay_only_skills": 0,
     "overlay_only_files": 2,
@@ -38,6 +39,7 @@
     "agent-workflow",
     "build-test-release",
     "coding",
+    "media",
     "operations",
     "product-ux",
     "research-data",
@@ -195,7 +197,7 @@
       "tree_sha256": "265eff18c696857257895e984a91706a146e2e1fcc3ed57d592978e51d4d8641",
       "files": 1,
       "bytes": 11522,
-      "description": "Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.",
+      "description": "Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.",
       "tags": [
         "writing"
       ],
@@ -1060,7 +1062,7 @@
       "tree_sha256": "a03b38d811533099a0a10062fc9c594b617cdc5b09a8d7cba56565dd6af76b41",
       "files": 4,
       "bytes": 14884,
-      "description": "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way to prove UI/CLI/service behavior.",
+      "description": "Generate a project-local verification skill that drives your app the way a user does \u2014 any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way to prove UI/CLI/service behavior.",
       "tags": [
         "build-test-release",
         "multi-file"
@@ -1947,6 +1949,342 @@
       "files": 1,
       "bytes": 10475,
       "last_verified": "2026-09-05T23:30:00Z"
+    },
+    {
+      "slug": "interface-design",
+      "source_path": "skills/product-ux/interface-design",
+      "installed_paths": [
+        "~/.claude/skills/interface-design"
+      ],
+      "sha256": "644415890e17c544568f688539dd0b2d551ae8bbbcb22ce42be7246b5d8e4467",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "product-ux",
+      "layout": "grouped",
+      "tree_sha256": "b0e85dec1b8617aa726799470605adbe08b442b94feec7e0405ebd8347606ac8",
+      "files": 4,
+      "bytes": 30026,
+      "description": "This skill is for interface design \u2014 dashboards, admin panels, apps, tools, and interactive products. NOT for marketing design (landing pages, marketing sites, campaigns).",
+      "tags": [
+        "product-ux"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/design/interface-design",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "b0e85dec1b8617aa726799470605adbe08b442b94feec7e0405ebd8347606ac8",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "layout-qa",
+      "source_path": "skills/build-test-release/layout-qa",
+      "installed_paths": [
+        "~/.claude/skills/layout-qa"
+      ],
+      "sha256": "0d5433a437d5320c785cfa00456909a1abeb36ee918a9105c13998c8c96859c5",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "build-test-release",
+      "layout": "grouped",
+      "tree_sha256": "951dafa387c36548d93215a2fd36496a3adb3c20b0db7a81d63d80537b1c7396",
+      "files": 3,
+      "bytes": 30951,
+      "description": "Automated layout QA pipeline. Captures screenshots via e2e tests, fans out to AI auditors checking corners, container bounds, overflow, and element overlap. Works with any project that has an executable and .e2e test files.",
+      "tags": [
+        "build-test-release"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/verify/layout-qa",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "951dafa387c36548d93215a2fd36496a3adb3c20b0db7a81d63d80537b1c7396",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "eye",
+      "source_path": "skills/operations/eye",
+      "installed_paths": [
+        "~/.claude/skills/eye"
+      ],
+      "sha256": "de1c3afd5a1a9048df43cd709d5191e8f0a103a9d940acbd4e358f6f24e12536",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "operations",
+      "layout": "grouped",
+      "tree_sha256": "c096663737d1f12950afebebc33ef1ee7f1a54e3d2a7ed8086be2899fc249a93",
+      "files": 3,
+      "bytes": 20825,
+      "description": ">",
+      "tags": [
+        "operations"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/tools/eye",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "c096663737d1f12950afebebc33ef1ee7f1a54e3d2a7ed8086be2899fc249a93",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "file-transfer",
+      "source_path": "skills/operations/file-transfer",
+      "installed_paths": [
+        "~/.claude/skills/file-transfer"
+      ],
+      "sha256": "b6ef6a6dea5caecc7ba7aed8c78709a7fb5c893c8ff309e98f1ff7bd156ffc1e",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "operations",
+      "layout": "grouped",
+      "tree_sha256": "f63ceca91e64482c0d31af2d28d368f86a1466f25161db7f32a004c8ffc61a2d",
+      "files": 2,
+      "bytes": 4607,
+      "description": ">",
+      "tags": [
+        "operations"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/tools/file-transfer",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "f63ceca91e64482c0d31af2d28d368f86a1466f25161db7f32a004c8ffc61a2d",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "skill-evaluator",
+      "source_path": "skills/operations/skill-evaluator",
+      "installed_paths": [
+        "~/.claude/skills/skill-evaluator"
+      ],
+      "sha256": "440a906a40f04005b75e05efb3fa3c7a15055c19b98c83db6a9eb803f6b3f9fb",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "operations",
+      "layout": "grouped",
+      "tree_sha256": "3ff27f1acd808d1ff57c8f0afdb202853e337655ab10e3bf4749c6aee245a5ed",
+      "files": 1,
+      "bytes": 7733,
+      "description": ">",
+      "tags": [
+        "operations"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/tools/skill-evaluator",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "3ff27f1acd808d1ff57c8f0afdb202853e337655ab10e3bf4749c6aee245a5ed",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "feature-demo-studio",
+      "source_path": "skills/media/feature-demo-studio",
+      "installed_paths": [
+        "~/.claude/skills/feature-demo-studio"
+      ],
+      "sha256": "b6c69aee97288ae5957bfe236c61114160bfb3d3968e969a7686688d4295d6e2",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "f8bbafc44e42129ea3fc2547a47d56d189c08ee150556bd8ebcc533c976f2380",
+      "files": 1,
+      "bytes": 10374,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/feature-demo-studio",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "f8bbafc44e42129ea3fc2547a47d56d189c08ee150556bd8ebcc533c976f2380",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "ui-capture-cdp",
+      "source_path": "skills/media/ui-capture-cdp",
+      "installed_paths": [
+        "~/.claude/skills/ui-capture-cdp"
+      ],
+      "sha256": "a54f1628864049bddd4e18d9ce124a2c94c0f9250a5d60ecc6a9c7782b901c83",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "20341b005927b0010d147728be0a6de94f20b05988c5ef545f2f7bf1fa4263f3",
+      "files": 5,
+      "bytes": 13981,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/ui-capture-cdp",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "20341b005927b0010d147728be0a6de94f20b05988c5ef545f2f7bf1fa4263f3",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "demo-video-assembly",
+      "source_path": "skills/media/demo-video-assembly",
+      "installed_paths": [
+        "~/.claude/skills/demo-video-assembly"
+      ],
+      "sha256": "1e4c27174ea530cfd5285ed6a31154a2ed97ee6f5f5257c157f22d2a4aec61cd",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "392481d9bdf5d17be256d9697bf6730fe8403175a7ccb6d9ae1d2d6e35db06f7",
+      "files": 5,
+      "bytes": 11705,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/demo-video-assembly",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "392481d9bdf5d17be256d9697bf6730fe8403175a7ccb6d9ae1d2d6e35db06f7",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "narration-audit",
+      "source_path": "skills/media/narration-audit",
+      "installed_paths": [
+        "~/.claude/skills/narration-audit"
+      ],
+      "sha256": "946593db8695edfa3ae260b1f73aa05d605d7df8ef38adbc1c54035b7e944a2c",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "d4751aa8c6c670622fe2bd679b47ccb33c46582f339743cd13a02b86772d8757",
+      "files": 3,
+      "bytes": 8429,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/narration-audit",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "d4751aa8c6c670622fe2bd679b47ccb33c46582f339743cd13a02b86772d8757",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "narration-pacing-audit",
+      "source_path": "skills/media/narration-pacing-audit",
+      "installed_paths": [
+        "~/.claude/skills/narration-pacing-audit"
+      ],
+      "sha256": "ea28a881771b218fe82910753430cb926ce5074117ee348694de258015268e4b",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "cd0113d8b60000ac1d81dfa1115310c045da18fec1fcf79e024f592dbc7ad05f",
+      "files": 2,
+      "bytes": 6050,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/narration-pacing-audit",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "cd0113d8b60000ac1d81dfa1115310c045da18fec1fcf79e024f592dbc7ad05f",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "narration-vocab-audit",
+      "source_path": "skills/media/narration-vocab-audit",
+      "installed_paths": [
+        "~/.claude/skills/narration-vocab-audit"
+      ],
+      "sha256": "a3a47f84c2d52c831d5379b064491575482767c22d276eba809ddf7fb05d4de6",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "c86b5fcc3e3cd1339588a02a67eb211d850dae8c4bd7f6fcf2368ea39d16d71c",
+      "files": 2,
+      "bytes": 6849,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/narration-vocab-audit",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "c86b5fcc3e3cd1339588a02a67eb211d850dae8c4bd7f6fcf2368ea39d16d71c",
+        "sanitized": false
+      }
+    },
+    {
+      "slug": "speaker-style-setup",
+      "source_path": "skills/media/speaker-style-setup",
+      "installed_paths": [
+        "~/.claude/skills/speaker-style-setup"
+      ],
+      "sha256": "f068427b086ce429a611198f98859713abf55009d3e3ddcfb3d393b8e4a801bb",
+      "last_verified": "2026-09-06T00:00:00Z",
+      "status": "seeded",
+      "note": "Imported from a preserved local build on boulder.local (~/p/skillz-local-98skill-20260906) that was never pushed anywhere; self-authored, no vendored license involved.",
+      "group": "media",
+      "layout": "grouped",
+      "tree_sha256": "a69b56356701bbef88310598429b12d6a186e9446a63b98998c3251eb4deb0fc",
+      "files": 3,
+      "bytes": 12050,
+      "description": ">",
+      "tags": [
+        "media"
+      ],
+      "classification": "generic",
+      "provenance": {
+        "origin": "boulder.local:~/p/skillz-local-98skill-20260906/media/speaker-style-setup",
+        "upstream": "personal, authored by the repo owner",
+        "verbatim_copy": true,
+        "source_tree_sha256": "a69b56356701bbef88310598429b12d6a186e9446a63b98998c3251eb4deb0fc",
+        "sanitized": false
+      }
     }
   ],
   "conflicts": [],

@@ -14,9 +14,9 @@ says what is left to decide.
 | pstack (`cursor/plugins`) | 44 skills | MIT, © 2026 Lauren Tan | `pstack/LICENSE` at a pinned commit, read from a local clone and re-read from the GitHub API |
 | ponytail | `skills/coding/ponytail-lazy-coding/` | MIT, © 2026 DietrichGebert | upstream `LICENSE` file, read from two independent local copies |
 | tropes.fyi taxonomy | part of `skills/writing/gabe-writing/references/ai-tells.md` | no terms published | the public site, checked this pass |
-| repo owner | `skills/writing/gabe-writing/`, `skills/writing/in-my-voice/`, `skills/product-ux/customer-obsession/`, `skills/coding/value-oriented-programming/`, all of `bin/`, and the repo's own docs | the owner's own work | authorship |
+| repo owner | `skills/writing/gabe-writing/`, `skills/writing/in-my-voice/`, `skills/product-ux/customer-obsession/`, `skills/coding/value-oriented-programming/`, `skills/product-ux/interface-design/`, `skills/build-test-release/layout-qa/`, `skills/operations/eye/`, `skills/operations/file-transfer/`, `skills/operations/skill-evaluator/`, `skills/media/*` (7 skills), all of `bin/`, and the repo's own docs | the owner's own work | authorship |
 
-44 + 1 + 4 = 49 tracked skills. `manifest.json` carries the same facts per skill
+44 + 1 + 16 = 61 tracked skills. `manifest.json` carries the same facts per skill
 under `provenance`, and is the machine-readable version of this file.
 
 ## pstack

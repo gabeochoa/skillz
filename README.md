@@ -39,15 +39,19 @@ group name is not part of a skill's installed identity.
 |---|---|---|
 | `coding` | 18 | How code gets written: design discipline and the principle set |
 | `agent-workflow` | 10 | How an agent runs a job: playbooks, delegation, reflection, recall |
-| `build-test-release` | 8 | Proving a change works before and after it ships |
+| `build-test-release` | 9 | Proving a change works before and after it ships |
 | `writing` | 6 | Voice, plain language, and stripping AI tells out of prose |
-| `product-ux` | 3 | Design-space, experience-first, and customer-outcome judgment |
+| `media` | 7 | Recording, narrating, and assembling a feature demo |
+| `product-ux` | 4 | Design-space, experience-first, and customer-outcome judgment |
+| `operations` | 5 | Environment setup, browser/file tooling, and an auditable decision log |
 | `research-data` | 2 | Explaining how something works and why it came to be |
-| `operations` | 2 | Environment setup and keeping an auditable decision log |
-| **total** | **49** | no ungrouped skills |
+| **total** | **61** | no ungrouped skills |
 
-By origin: 44 vendored from pstack under MIT, 4 the owner's own work, 1 derived
-from an MIT-licensed upstream.
+By origin: 44 vendored from pstack under MIT, 15 the owner's own work, 1 derived
+from an MIT-licensed upstream. The 12 `media`/`operations`/`product-ux`/
+`build-test-release` additions beyond the original 49 came from a second,
+independently-built skill checkout found on boulder.local on 2026-09-06 (see
+`MANIFEST.md`'s "Imported from boulder" section).
 
 `manifest.json` is the index: per skill, its `source_path`, group, both tree
 hashes, and full provenance including upstream commit and licence.
