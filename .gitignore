@@ -5,6 +5,10 @@ backups/
 .test-home/
 /tmp-*
 
+# Agent tooling state written into the repo directory by a session that runs
+# here. Never repo content: this repo's own skills live under skills/.
+/.claude/
+
 # Generated, re-creatable reports (not the authored INVENTORY.md)
 reports/
 *.generated.json
