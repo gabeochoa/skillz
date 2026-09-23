@@ -27,7 +27,7 @@ rollback snapshots, and the local overlay are gitignored and stay on the machine
 Both are decisions, not unknowns. The facts each one needs are settled and
 recorded in `THIRD_PARTY_NOTICES.md`.
 
-### 1. This repo has no licence
+### 1. Licence: decided, MIT (2026-09-22)
 
 Without a `LICENSE` file the owner's own work is all rights reserved by default,
 which blocks anyone else from using a public copy. The third-party content is
@@ -36,7 +36,7 @@ already cleared; this is about the owner's own.
 No licence has been chosen and this pass did not choose one. See
 `LICENSE_DECISION.md` for what the decision covers and what it does not.
 
-**Next action, owner only:** pick a licence, or decide the repo stays private.
+Resolved: `LICENSE` is MIT.
 
 ### 2. `in-my-voice` is a rewrite of an employer-internal skill
 

@@ -226,5 +226,5 @@ Authored here and covered by whatever licence the repo itself adopts:
 - `README.md`, `CONTRIBUTING.md`, `MANIFEST.md`, `INVENTORY.md`, `CONFLICTS.md`,
   `OVERLAY.md`, `LICENSE_DECISION.md`, this file, and `PUSH_BLOCKED.md`
 
-This repo carries no `LICENSE` file. Until the owner chooses one, that work is
+This repo is MIT licensed (`LICENSE`, 2026-09-22). Before that choice, that work was
 all rights reserved by default. See `LICENSE_DECISION.md`.
