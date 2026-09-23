@@ -1,164 +1,122 @@
 # skillz
 
-Gabe's personally-maintained agent skills, kept separate from platform and vendor
-skill bundles so they survive machine resets and live in their own git history.
+Personal and vendored agent skills. The source of truth is `dotfiles/skillz/`,
+a regular folder in the private dotfiles repository; this tree is mirrored to
+the standalone `skillz` repository for sharing.
 
-## Purpose
+## Install
 
-`~/.claude/skills/` on any given machine is a mix of:
+From the dotfiles root, install the dotfiles and all skills for both Claude Code
+and Codex:
 
-1. Personal skills, authored or curated here, meant to travel between machines.
-2. Vendor and platform skill packs, installed by the agent tooling itself.
-
-This repo tracks both, but not on the same terms. Personal work is the point of
-the repo. Vendored packs are tracked only where their licence permits it, with
-the upstream, the licence, and the exact commit recorded per skill.
-`THIRD_PARTY_NOTICES.md` says what came from where.
-
-## Remote and visibility
-
-The remote is **private**, measured with `gh repo view`, not inferred from the
-SSH URL:
-
-```
-$ gh repo view gabeochoa/skillz --json visibility,isPrivate,licenseInfo
-{"isPrivate":true,"licenseInfo":null,"visibility":"PRIVATE"}
+```sh
+./install.sh --dry-run
+./install.sh
 ```
 
-The tracked tree is nonetheless written to be publishable on its own, so that
-flipping it public is a decision rather than a cleanup project. Backup readiness
-and public-redistribution readiness are tracked separately in `PUSH_BLOCKED.md`.
+Claude Code receives the individual skills in `~/.claude/skills/`.
+Codex receives the full files in `~/.codex/skill-library/`, outside automatic
+discovery, plus one small `skill-index` entry in `~/.codex/skills/`.
 
-## Categories
+Say “make a video” to load the video workflow, “review this UI” to load the UI
+review skill, or name a skill directly. The index reads only the relevant skill
+and its references as the work needs them. Ordinary tasks do not require a
+personal workflow. Restart Codex after switching an existing installation to
+this layout so the old skill list leaves the session context.
 
-Skills are grouped by what they are for. The group directory categorizes the
-source tree only: every skill installs flat to `~/.claude/skills/<slug>`, so the
-group name is not part of a skill's installed identity.
+The installer archives existing individual Codex skill copies under
+`skillz/backups/`. Extra personal skills move into the library and appear in the
+catalog. System skills and plugin installations stay intact.
 
-| Group | Skills | What lives here |
-|---|---|---|
-| `coding` | 18 | How code gets written: design discipline and the principle set |
-| `agent-workflow` | 10 | How an agent runs a job: playbooks, delegation, reflection, recall |
-| `build-test-release` | 9 | Proving a change works before and after it ships |
-| `writing` | 6 | Voice, plain language, and stripping AI tells out of prose |
-| `media` | 7 | Recording, narrating, and assembling a feature demo |
-| `product-ux` | 4 | Design-space, experience-first, and customer-outcome judgment |
-| `operations` | 5 | Environment setup, browser/file tooling, and an auditable decision log |
-| `research-data` | 2 | Explaining how something works and why it came to be |
-| **total** | **61** | no ungrouped skills |
+To update one skill for Claude Code:
 
-By origin: 44 vendored from pstack under MIT, 15 the owner's own work, 1 derived
-from an MIT-licensed upstream. The 12 `media`/`operations`/`product-ux`/
-`build-test-release` additions beyond the original 49 came from a second,
-independently-built skill checkout found on boulder.local on 2026-09-06 (see
-`MANIFEST.md`'s "Imported from boulder" section).
-
-`manifest.json` is the index: per skill, its `source_path`, group, both tree
-hashes, and full provenance including upstream commit and licence.
-`MANIFEST.md` is the readable version of the same table.
-
-## Source-of-truth rule
-
-- `skills/<group>/<slug>/SKILL.md` (plus any referenced assets and scripts) here
-  is canonical.
-- The installed copy at `~/.claude/skills/<slug>/` is a deployment target, not a
-  source. Edit here, then run `bin/install.sh` to sync out.
-- `manifest.json` records the hash of each skill's tracked tree as last verified.
-  `bin/check.sh` reports drift between manifest, source, and installed copies.
-- Where the tracked copy deliberately differs from what upstream ships, the
-  difference is recorded under `variants` in `manifest.json` rather than being
-  silently reconciled in either direction.
-- No secrets, credentials, serials, or other private data belong in this repo.
-  Skills are prose and config, not data.
-
-## Layout
-
-```
-skillz/
-  README.md
-  CONTRIBUTING.md
-  MANIFEST.md               # readable skill table
-  INVENTORY.md              # what each machine holds, and what was excluded
-  CONFLICTS.md              # merge collisions, variants, and deferred items
-  THIRD_PARTY_NOTICES.md    # upstream origins, licences, and pinned commits
-  OVERLAY.md                # the untracked local layer, and how to rebuild it
-  LICENSE_DECISION.md       # why there is no LICENSE file yet
-  PUSH_BLOCKED.md           # backup readiness vs public readiness
-  manifest.json             # slug -> source path, installed paths, hashes, provenance
-  .gitignore
-  skills/<group>/<slug>/SKILL.md
-  licenses/                 # full text of every bundled third-party licence
-  bin/install.sh            # idempotent: skills/ (+ optional overlay) -> ~/.claude/skills/
-  bin/check.sh              # verify manifest hashes + drift vs installed copies
-  bin/public_check.py       # fail content that is not safe to publish
-  bin/tree_hash.py          # the canonical tree-hash recipe
-  bin/tests/                # unit tests for the public check
+```sh
+cd skillz
+./bin/install.sh --only clean-copy
 ```
 
-## Install and sync
+To update one skill in the Codex library and refresh its index:
 
-```bash
-# Install everything in skills/ into ~/.claude/skills/ (atomic per skill, backs
-# up anything it would overwrite):
-bin/install.sh
-
-# Install one skill only:
-bin/install.sh --only customer-obsession
-
-# Also merge the machine-local overlay (see OVERLAY.md):
-bin/install.sh --with-overlay
-
-# Dry run (prints what it would do, changes nothing):
-bin/install.sh --dry-run
-
-# Test against a scratch HOME instead of touching the real one:
-HOME=/tmp/scratch-home bin/install.sh
+```sh
+./bin/install.sh --dest ~/.codex/skill-library --only clean-copy
+python3 bin/install_index.py
 ```
 
-```bash
-# Verify manifest hashes match skills/ source, and (read-only) report drift
-# against what is actually installed at $HOME/.claude/skills:
-bin/check.sh
+Add `--dry-run` to preview either installer. Matching directories are skipped
+using direct comparisons. Edit source files under `skills/`, then reinstall.
+The index instructions live in `index/SKILL.md`; its catalog is generated from
+the installed library, so there is no second skill list to maintain by hand.
 
-# Same, for a machine that installed the overlay too:
-bin/check.sh --with-overlay
+## Collection
+
+The collection contains 66 skills across eight categories:
+
+| Category | Skills |
+|---|---:|
+| agent-workflow | 10 |
+| build-test-release | 9 |
+| coding | 19 |
+| media | 7 |
+| operations | 5 |
+| product-ux | 7 |
+| research-data | 2 |
+| writing | 7 |
+
+Recent additions include `design-taste-quiz`, `ui-screenshot-review`, `fun-loop`,
+`clean-copy`, and `afterhours-save-load`. The collection also retains the twelve
+earlier imports for interface design, layout checks, file transfer, skill
+evaluation, and video production.
+
+[MANIFEST.md](MANIFEST.md) lists every skill. [manifest.json](manifest.json)
+records source paths and provenance. The separate ponytail variants
+remain outside this collection; the portable
+`ponytail-lazy-coding` skill is included.
+
+## Verify and update
+
+From this folder:
+
+```sh
+./bin/install.sh --dry-run
+python3 -m unittest discover -s bin/tests
+python3 bin/public_check.py
 ```
 
-`bin/check.sh` warns that `poteto-mode`'s frontmatter `name` does not match its
-directory slug. That is upstream's own spelling, kept deliberately so the tracked
-copy stays byte-identical to the pinned commit. The warning is expected.
+The dry run reports `up to date` for identical skills and `would install` for
+missing or changed copies. Add `--dest ~/.codex/skill-library` to check Codex instead
+of Claude Code. It does not write to either installation.
 
-## Portable by default
+After adding a skill, add its source path and provenance to `manifest.json`,
+update the counts and `MANIFEST.md`, and record any attribution in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Editing a skill does not
+require regenerating checksums.
 
-Nothing tracked here names an employer, an internal system, a host, a machine, or
-a colleague, and nothing tracked here is verbatim third-party content the repo
-has no right to redistribute.
+Run `python3 tests/verify.py` from the dotfiles root to exercise the full
+installation into a temporary home, including both skill destinations.
 
-- `.local-meta/` holds the private originals that generic skills were derived
-  from, the employer-specific adapters, the private denylist, and the local
-  overlay. It is gitignored and `bin/public_check.py` refuses to scan it.
-- A generic-only install is the default. Overlay material is opt-in and never
-  required to use anything in `skills/`.
+## Local overlays
 
-`bin/public_check.py` enforces this. Run all three before publishing:
+`.local/` is an ignored, machine-specific overlay. It is preserved locally
+when moving an existing checkout, but is not required for a normal install.
+To merge it over the portable skills for a particular destination:
 
-```bash
-python3 -m unittest discover -s bin/tests      # rule tests
-python3 bin/public_check.py                    # generic rules
-python3 bin/public_check.py --rules .local-meta/rules/internal_denylist.txt --strict
+```sh
+./bin/install.sh --with-overlay --dest ~/.claude/skills
+./bin/install.sh --dry-run --with-overlay
 ```
 
-The third is the one that matters, and it only runs on a machine that has
-`.local-meta/`. The scanner reads the working tree, not history: anything already
-committed is out of its reach.
+See [OVERLAY.md](OVERLAY.md) for its layout. Backups and local overlays stay
+untracked. The dotfiles installer uses the portable collection by default.
 
-## Attribution
+## Attribution and history
 
-Most of `skills/` is vendored rather than authored here.
-`THIRD_PARTY_NOTICES.md` records each origin, the files it covers, its licence,
-and the artifact that licence was read from. Every vendored licence's full text
-is in `licenses/`.
+Vendored material retains its upstream terms and notices in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `licenses/`.
+No new collection-wide licence is granted by moving these files into dotfiles.
+`clean-copy` was imported from the local installation without an upstream
+licence declaration.
 
-This repo has no `LICENSE` file of its own. Until one is chosen, the owner's own
-work is all rights reserved by default and public redistribution is blocked. See
-`LICENSE_DECISION.md`.
+[INVENTORY.md](INVENTORY.md), [CONFLICTS.md](CONFLICTS.md), and
+[PUSH_BLOCKED.md](PUSH_BLOCKED.md) retain the earlier collection and licensing
+assessments. Statements there about the standalone repository's remote or
+visibility are historical; the parent dotfiles repository now owns these files.

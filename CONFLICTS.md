@@ -6,8 +6,8 @@ public-cleanup pass the same day, and the reconciliation pass that follows them.
 Rollback material, all gitignored:
 
 - `.merge-backups/20260905T111700/` — snapshots and originals from the merge.
-- `.local-meta/originals/pre-public-cleanup/` — preimages from the cleanup pass.
-- `.local-meta/originals/pre-reconcile/` — preimages from the reconciliation pass.
+- `.local/originals/pre-public-cleanup/` — preimages from the cleanup pass.
+- `.local/originals/pre-reconcile/` — preimages from the reconciliation pass.
 
 ## File-level collisions
 
@@ -25,14 +25,12 @@ These paths existed already and were merged rather than replaced.
 
 | Path | How it was merged |
 |---|---|
-| `.gitignore` | Existing blocks kept verbatim and first. New blocks appended for `.local-meta/`, local rule files, `.merge-backups/`, `.incoming/`, Python, Node, and editor noise. Entries already present were not duplicated. |
-| `manifest.json` | Existing schema kept, because `bin/check.sh` reads `.skills[].slug`, `.status`, and `.sha256`. Later passes added keys rather than replacing the shape: `tree_sha256`, `group`, `files`, `bytes`, `description`, `tags`, `provenance`, and then the proven upstream pin, `variants`, `hosts`, and `overlay`. |
+| `.gitignore` | Existing blocks kept verbatim and first. New blocks appended for `.local/`, local rule files, `.merge-backups/`, `.incoming/`, Python, Node, and editor noise. Entries already present were not duplicated. |
+| `manifest.json` | The inventory keeps source paths and provenance. Checksum fields were removed after the move into dotfiles. |
 | `README.md` | The merge appended sections, leaving two titles and a stale "next step: git init" block. The cleanup pass rewrote it as one document. The reconciliation pass corrected its remote-visibility claim and its counts. |
-| `bin/install.sh` | Discovery generalized from `skills/*/` to any directory holding a `SKILL.md` at depth 1 or 2, so flat and grouped entries both install. The reconciliation pass added `--with-overlay` and moved staging so the hash compared is the hash installed. Install target is unchanged: `~/.claude/skills/<slug>`. |
-| `bin/check.sh` | Source lookup reads `source_path` from the manifest and falls back to `skills/<slug>`. The reconciliation pass added `--with-overlay`, so an overlay install is reported as `OVERLAY` rather than as misleading drift. |
+| `bin/install.sh` | Discovery generalized from `skills/*/` to any directory holding a `SKILL.md` at depth 1 or 2, so flat and grouped entries both install. The reconciliation pass added `--with-overlay` and moved staging so the staged contents are compared with the installed copy. Install target is unchanged: `~/.claude/skills/<slug>`. |
 
-Both scripts were changed only where the layout would otherwise make them
-misbehave. Originals are under the rollback paths above.
+The installer was updated for the grouped layout. Originals are under the rollback paths above.
 
 ## Variants: tracked deliberately differs from installed
 

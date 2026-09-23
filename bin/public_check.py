@@ -44,7 +44,7 @@ ERROR, WARN = "ERROR", "WARN"
 #
 # The skip is only safe while git actually ignores them, so check_gitignore()
 # verifies every entry. An unignored one is an error, not a silent hole.
-PRIVATE_DIRS = {".local-meta", ".merge-backups", ".incoming", "backups"}
+PRIVATE_DIRS = {".local", ".merge-backups", ".incoming", "backups"}
 
 # Directories never scanned during a repo-wide run.
 #  PRIVATE_DIRS  gitignored, private by design, see above

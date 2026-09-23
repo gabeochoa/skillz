@@ -23,7 +23,7 @@ reports/
 .env
 
 # Private originals and machine-specific material. Never published.
-.local-meta/
+.local/
 
 # Local rule files that name internal systems.
 bin/rules/local_*.txt

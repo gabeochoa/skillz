@@ -1,9 +1,9 @@
 # Extra denylist rules, example format.
 #
 # Copy this file somewhere OUTSIDE version control (the repo keeps private
-# originals in .local-meta/, which is gitignored) and pass it in:
+# originals in .local/, which is gitignored) and pass it in:
 #
-#     python3 bin/public_check.py --rules .local-meta/rules/internal_denylist.txt
+#     python3 bin/public_check.py --rules .local/rules/internal_denylist.txt
 #
 # Employer-specific patterns do not belong in a public repo, which is why this
 # tracked file contains only placeholders. Replace the right-hand side with the

@@ -1,5 +1,10 @@
 # Publication status
 
+Historical assessment from the standalone skillz repository. As of 2026-09-19,
+these files live in `dotfiles/skillz/` and use the dotfiles repository's remote.
+The visibility check below describes the former remote, not the current parent
+repository. Licensing notes remain applicable to the imported content.
+
 The remote is **private**, measured this pass, not inferred from the SSH URL:
 
 ```
@@ -76,8 +81,8 @@ references it. The reference runs the other way, from `in-my-voice` to
 - **One host is not inventoried.** `workstation-b` was offline for every attempt
   in this pass and the previous one, so no claim is made about what it holds.
   This affects completeness of the backup, not the licence status of anything
-  tracked. **Next action:** bring that machine online and run the same tree-hash
-  reconciliation used on the other two.
+  tracked. **Next action:** bring that machine online and run the same directory
+  comparison used on the other two.
 
 ## Clearing this file
 

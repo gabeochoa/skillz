@@ -1,0 +1,4 @@
+interface:
+  display_name: "Afterhours save/load"
+  short_description: "Design, build, and verify game saves in Afterhours"
+  default_prompt: "Use $afterhours-save-load to implement and verify save/load for this Afterhours game."

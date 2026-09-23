@@ -1,7 +1,7 @@
 # The local overlay
 
 `skills/` is the tracked, portable, redistributable tree. The overlay is the
-untracked layer beside it, at `.local-meta/skills/<slug>/`, for material that is
+untracked layer beside it, at `.local/skills/<slug>/`, for material that is
 worth keeping on a machine but must not be redistributed from this repo.
 
 This file is tracked. Its contents are not. That is deliberate: a backup story is
@@ -54,36 +54,33 @@ bin/install.sh --with-overlay  # tracked, with the overlay merged over it
 The overlay merges per skill, file by file, over the tracked copy of the same
 name; an overlay file wins a filename collision. A skill that exists only in the
 overlay and carries its own `SKILL.md` is installed too. Both modes are atomic
-per skill and idempotent, and the staged copy is hashed before it is moved into
-place, so the hash compared is the hash installed.
+per skill and idempotent. The installer compares the staged directory with the
+installed copy before moving it into place.
 
 Without the flag the overlay is ignored entirely. A machine that has never seen
-`.local-meta/` installs the whole tracked tree and nothing is missing except the
+`.local/` installs the whole tracked tree and nothing is missing except the
 excerpts above.
 
 ## Checking an overlay install
 
 ```bash
-bin/check.sh                 # expects installed copies to match the tracked tree
-bin/check.sh --with-overlay  # expects them to match tracked plus overlay
+bin/install.sh --dry-run                 # expects installed copies to match the tracked tree
+bin/install.sh --dry-run --with-overlay  # expects them to match tracked plus overlay
 ```
 
-`manifest.json` always records the hash of the **tracked** source. An installed
-copy carrying the overlay therefore hashes differently by design, and plain
-`bin/check.sh` will honestly call that DRIFT. Pass `--with-overlay` and the
-expected hash is computed from a staged tracked-plus-overlay merge, which reports
-`OVERLAY` instead. Both answers are true; they answer different questions.
+Pass `--with-overlay` to compare installed files with the combined source and
+overlay. Without it, the dry run compares with the portable source only.
 
 ## Adding to the overlay
 
-1. Put it at `.local-meta/skills/<slug>/`, mirroring the installed layout.
+1. Put it at `.local/skills/<slug>/`, mirroring the installed layout.
 2. Add a row to the table above, with what it is, why it cannot be tracked, and
    how to re-obtain it.
 3. Record it under `overlay.contents` in `manifest.json`.
 4. Re-run the strict public check. The overlay is gitignored, and
-   `bin/public_check.py` refuses to scan `.local-meta/`, so a mistake there will
+   `bin/public_check.py` refuses to scan `.local/`, so a mistake there will
    not be caught for you.
 
 Do not add anything to the overlay merely because it is private. Private
-originals belong in `.local-meta/originals/`, employer-specific instructions in
-`.local-meta/adapters/`. The overlay is only for installable skill content.
+originals belong in `.local/originals/`, employer-specific instructions in
+`.local/adapters/`. The overlay is only for installable skill content.

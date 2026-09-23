@@ -3,7 +3,7 @@
 What each machine holds, what was brought into `skills/`, and what was left out
 and why. Machines are referred to by alias throughout the tracked tree, because
 personal machine names are private data. The alias map is in
-`.local-meta/host-aliases.md`, which is not tracked.
+`.local/host-aliases.md`, which is not tracked.
 
 Three machines are in scope. Two are reconciled. One is not reachable.
 
@@ -69,11 +69,11 @@ attempt in this pass and the one before it, so nothing is claimed about what it
 holds: not a count, not a list, not an assertion that it holds nothing new.
 
 **Next action:** bring it online and run the same reconciliation used on
-`workstation-c`. Tree-hash every directory under its `~/.claude/skills/`, compare
+`workstation-c`. Compare every directory under its `~/.claude/skills/`, compare
 against `manifest.json`, import anything missing into the right group, and record
 any variant instead of overwriting it.
 
-Do not fill this section in from memory. Fill it in from a hash-backed run on the
+Do not fill this section in from memory. Fill it in from a content comparison on the
 machine itself.
 
 ## Adjacent, and deliberately not included

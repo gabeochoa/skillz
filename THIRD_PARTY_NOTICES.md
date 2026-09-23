@@ -16,8 +16,16 @@ says what is left to decide.
 | tropes.fyi taxonomy | part of `skills/writing/gabe-writing/references/ai-tells.md` | no terms published | the public site, checked this pass |
 | repo owner | `skills/writing/gabe-writing/`, `skills/writing/in-my-voice/`, `skills/product-ux/customer-obsession/`, `skills/coding/value-oriented-programming/`, `skills/product-ux/interface-design/`, `skills/build-test-release/layout-qa/`, `skills/operations/eye/`, `skills/operations/file-transfer/`, `skills/operations/skill-evaluator/`, `skills/media/*` (7 skills), all of `bin/`, and the repo's own docs | the owner's own work | authorship |
 
-44 + 1 + 16 = 61 tracked skills. `manifest.json` carries the same facts per skill
+The collection contains 66 skills: 44 pstack skills, one ponytail-derived skill,
+20 other authored or derived skills, and one local import. `manifest.json` carries the same facts per skill
 under `provenance`, and is the machine-readable version of this file.
+
+## Afterhours save/load
+
+`skills/coding/afterhours-save-load/` contains original instructions authored
+for this collection. The design was informed by the user-provided September 2026
+discussion of save/load reliability by James Tusha and others, and inspection of
+the owner's Afterhours engine. No discussion text or engine source is reproduced.
 
 ## pstack
 
@@ -36,7 +44,7 @@ jq -r '.skills[] | select(.provenance.upstream_repo // "" | contains("cursor/plu
 | Plugin version at that commit | `0.14.2`, from `pstack/.cursor-plugin/plugin.json` |
 | Licence | MIT |
 | Copyright | (c) 2026 Lauren Tan |
-| Full text | `licenses/pstack-MIT.txt`, sha256 `bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e` |
+| Full text | `licenses/pstack-MIT.txt` |
 
 How it was established, after an earlier pass recorded it as unprovable:
 
@@ -57,7 +65,7 @@ MIT requires the copyright notice and permission notice to travel with copies an
 substantial portions, which `licenses/pstack-MIT.txt` does.
 
 **Which copies are verbatim.** 42 of the 44 are byte-identical to the pinned
-commit, verified by tree hash. Two are modified here:
+commit, verified against the source files. Two are modified here:
 
 | Skill | Change |
 |---|---|
@@ -82,9 +90,8 @@ a verbatim copy.
 - Corroborated by: the separately installed marketplace copy of the same plugin
   on this machine, version `4.8.4` at commit
   `16f29800fd2681bdf24f3eb4ccffe38be3baec6b`.
-- The `LICENSE` file is byte-identical in both, sha256
-  `fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab`, and
-  `licenses/ponytail-MIT.txt` matches that hash.
+- The `LICENSE` file is byte-identical in both copies and matches
+  `licenses/ponytail-MIT.txt`.
 
 The skill body names the upstream project and its licence.
 
@@ -105,7 +112,7 @@ is why this is not a blocker.
 reading a same-named skill served by an agent platform's skill loader, whose
 source lives in the employer's monorepo and is therefore proprietary and
 unpublishable. The unsanitized loader body is kept out of the tracked tree, under
-`.local-meta/`.
+`.local/`.
 
 Measured against that retained source this pass:
 
@@ -141,6 +148,70 @@ licence granting redistribution, so it is not tracked. It lives in the untracked
 local overlay instead, and `OVERLAY.md` records what it is and how to re-obtain
 it. `SKILL.md` does not reference those files and is complete without them.
 
+## ui-screenshot-review and design-taste-quiz
+
+Both were written here on 2026-09-06. No upstream file was copied, and no upstream
+text is reproduced — every fetch of the sources below returned a summary rather
+than the document, so there was nothing to copy even had that been the intent.
+What crossed over is factual and conventional: threshold numbers that are either
+published standards or widely repeated craft rules, and structural ideas about
+how a review skill should be organised. Recorded anyway, because "we read these
+first" is worth stating.
+
+| Source | What it contributed |
+|---|---|
+| [`anthropics/claude-code`](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md) `frontend-design` | the anti-slop framing: naming specific defaults that read as AI output, and concentrating boldness in one element |
+| [`gregorymm/design-review-plugin`](https://github.com/gregorymm/design-review-plugin) (MIT per its repo listing) | numeric thresholds — spacing scale, 16px body minimum, 130–150% line height, three text styles, standard icon box sizes, "identical or clearly different" |
+| [`rknall/claude-skills`](https://github.com/rknall/claude-skills/tree/main/ui-design-review) `ui-design-review` | WCAG structure, and the finding shape: criterion, severity, impact, remediation |
+| [`Dammyjay93/interface-design`](https://github.com/Dammyjay93/interface-design) | the split between reviewing and de-slopping |
+
+The WCAG ratios, Nielsen's heuristics, and the typographic measure guidance are
+public standards and long-established craft, not any of these authors' property.
+
+The game-UI half comes from the owner's own
+`~/p/wm_afterhours/prompts/design_rules.md`, outside this repo. That file also
+sits beside six vendored platform HIGs (Apple, Google, Atlassian, USWDS,
+Microsoft Win95, Sun Java) which are **not** vendored into this repo — the skill
+only points at their paths on the owner's machine.
+
+Licences for `rknall/claude-skills` and `Dammyjay93/interface-design` were not
+established. That is not currently a distribution question, since neither is
+copied; it would become one if any of their text were ever imported.
+
+## dream-loop
+
+`skills/product-ux/fun-loop/` was written here on 2026-09-08 after reading
+[`achimala/dream-loop`](https://github.com/achimala/dream-loop) (MIT, © 2026 Anshu
+Chimala). No text is copied. An earlier draft carried three clauses close enough to
+the original to need the licence notice; they were rewritten, so nothing here is a
+text derivation and no notice obligation attaches. Credit is recorded anyway, because
+the shape of the skill is plainly owed to it.
+
+What the structure owes to it:
+
+- the gated tier ladder, and the rule that a tier's cap holds until every gate below
+  it passes
+- a fresh-context subagent judge, given the artifact plus the previous round's
+  artifact and verdict
+- the LANDED / PARTIAL / NOT DONE pass over the previous round's directives
+- the output shape: score, tier, blocking items first, then a bounded list of further
+  directives, each naming an element and a magnitude
+- the wall-clock budget, the self-check before submitting to the judge, and the
+  mandated structural change when the score stalls
+
+What is original here: the target (whether a design doc's own fun claim survives a
+build, rather than whether a render matches concept art), the bot-playtest harness and
+its metrics, and the computed-cap mechanism — gates are computed from those metrics
+before the judge is invoked, and the judge scores only within the cap. dream-loop lets
+its judge assess its own gates, which is sound when the judge can see a screenshot and
+unsound for an unattended judge scoring something as soft as fun.
+
+## clean-copy
+
+Imported verbatim from `~/.claude/skills/clean-copy` on 2026-09-19.
+The local copy contains no upstream attribution or licence declaration.
+This record does not grant redistribution rights.
+
 ## The owner's own work
 
 Authored here and covered by whatever licence the repo itself adopts:
@@ -148,9 +219,10 @@ Authored here and covered by whatever licence the repo itself adopts:
 - `skills/writing/gabe-writing/`, built on the tropes.fyi taxonomy noted above
 - `skills/writing/in-my-voice/`
 - `skills/product-ux/customer-obsession/`
+- `skills/product-ux/design-taste-quiz/`, `skills/product-ux/ui-screenshot-review/`,
+  and `skills/product-ux/fun-loop/`
 - `skills/coding/value-oriented-programming/`
-- `bin/` in full, including `public_check.py`, `install.sh`, `check.sh`,
-  `tree_hash.py`, and the tests
+- `bin/` in full, including `public_check.py`, `install.sh`, and the tests
 - `README.md`, `CONTRIBUTING.md`, `MANIFEST.md`, `INVENTORY.md`, `CONFLICTS.md`,
   `OVERLAY.md`, `LICENSE_DECISION.md`, this file, and `PUSH_BLOCKED.md`
 

@@ -6,15 +6,16 @@
 # Usage:
 #   bin/install.sh                    # install every skill under skills/
 #   bin/install.sh --only slug1,slug2
-#   bin/install.sh --with-overlay     # also merge .local-meta/skills over the tracked tree
+#   bin/install.sh --with-overlay     # also merge .local/skills over the tracked tree
 #   bin/install.sh --dry-run          # print what would happen, change nothing
+#   bin/install.sh --dest ~/.codex/skills  # choose another installation directory
 #   HOME=/tmp/scratch bin/install.sh  # install into a scratch HOME (testing)
 #
 # Layout: a skill is any directory holding a SKILL.md, flat (skills/<slug>/) or
 # grouped (skills/<group>/<slug>/). Both install to $DEST_ROOT/<slug>; the group
 # directory categorizes the source tree only and is not part of the installed name.
 #
-# Overlay: .local-meta/skills/<slug>/ is an optional, untracked, machine-local
+# Overlay: .local/skills/<slug>/ is an optional, untracked, machine-local
 # layer. With --with-overlay its files are merged over the tracked skill of the
 # same name (overlay wins on a filename collision), and an overlay-only skill
 # that carries its own SKILL.md is installed too. Without the flag the overlay is
@@ -23,7 +24,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILLS_SRC="$REPO_ROOT/skills"
-OVERLAY_SRC="$REPO_ROOT/.local-meta/skills"
+OVERLAY_SRC="$REPO_ROOT/.local/skills"
 DEST_ROOT="${HOME}/.claude/skills"
 BACKUP_ROOT="$REPO_ROOT/backups"
 ONLY=""
@@ -32,6 +33,9 @@ WITH_OVERLAY=0
 
 while [ $# -gt 0 ]; do
   case "$1" in
+    --dest)
+      [ $# -ge 2 ] && [ -n "$2" ] || { echo '--dest needs a directory' >&2; exit 2; }
+      DEST_ROOT="$2"; shift 2 ;;
     --only) ONLY="$2"; shift 2 ;;
     --only=*) ONLY="${1#*=}"; shift ;;
     --with-overlay) WITH_OVERLAY=1; shift ;;
@@ -44,24 +48,6 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# sha256 over sorted "F:relpath:sha256(file)" lines plus "L:relpath:target" for
-# symlinks — must match manifest.json's documented hash_method exactly.
-tree_hash() {
-  local dir="${1%/}"
-  {
-    find "$dir" -type f | sort | while read -r f; do
-      h=$(shasum -a 256 "$f" | awk '{print $1}')
-      rel="${f#"$dir"/}"
-      echo "F:$rel:$h"
-    done
-    find "$dir" -type l | sort | while read -r l; do
-      t=$(readlink "$l")
-      rel="${l#"$dir"/}"
-      echo "L:$rel:$t"
-    done
-  } | sort | shasum -a 256 | awk '{print $1}'
-}
-
 [ -d "$SKILLS_SRC" ] || { echo "no skills/ dir found at $SKILLS_SRC" >&2; exit 1; }
 
 if [ "$WITH_OVERLAY" -eq 1 ] && [ ! -d "$OVERLAY_SRC" ]; then
@@ -69,7 +55,7 @@ if [ "$WITH_OVERLAY" -eq 1 ] && [ ! -d "$OVERLAY_SRC" ]; then
   exit 1
 fi
 
-mkdir -p "$DEST_ROOT"
+if [ "$DRY_RUN" -eq 0 ]; then mkdir -p "$DEST_ROOT"; fi
 installed=0
 skipped=0
 overlaid=0
@@ -113,7 +99,7 @@ while IFS=$'\t' read -r slug skill_dir overlay_dir; do
     esac
   fi
 
-  # Stage tracked, then overlay on top, so the hash we compare is the hash we install.
+  # Stage tracked, then overlay on top, before comparing with the installed copy.
   stage="$TMPDIR_WORK/stage-$slug"
   rm -rf "$stage"; mkdir -p "$stage"
   if [ "$skill_dir" != "-" ]; then cp -R "$skill_dir/." "$stage/"; fi
@@ -121,9 +107,7 @@ while IFS=$'\t' read -r slug skill_dir overlay_dir; do
   [ -f "$stage/SKILL.md" ] || { echo "skip $slug: no SKILL.md" >&2; rm -rf "$stage"; continue; }
 
   dest="$DEST_ROOT/$slug"
-  src_hash=$(tree_hash "$stage")
-
-  if [ -d "$dest" ] && [ "$src_hash" = "$(tree_hash "$dest")" ]; then
+  if [ -d "$dest" ] && diff -qr "$stage" "$dest" >/dev/null; then
     echo "up to date: $slug"
     skipped=$((skipped + 1))
     rm -rf "$stage"
@@ -148,9 +132,9 @@ while IFS=$'\t' read -r slug skill_dir overlay_dir; do
   cp -R "$stage" "$tmp"
   rm -rf "$stage"
 
-  if [ -e "$dest" ]; then
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
     mkdir -p "$BACKUP_ROOT"
-    backup="$BACKUP_ROOT/${slug}.$(date -u +%Y%m%dT%H%M%SZ)"
+    backup="$(mktemp -d "$BACKUP_ROOT/${slug}.XXXXXXXX")/skill"
     mv "$dest" "$backup"
     echo "backed up existing $slug -> $backup"
   fi
